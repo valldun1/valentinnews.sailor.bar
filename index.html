@@ -1,238 +1,782 @@
 <!DOCTYPE html>
-<html lang="ru" data-bs-theme="auto">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Геополитический дайджест">
-    <title>Геополитический дайджест</title>
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-    /* stylelint-disable @stylistic/selector-list-comma-newline-after */
-
-    .blog-header-logo {
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-      font-size: 2.25rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лента новостей — геополитика</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #f8f9fa; }
+    .header { background: #0d6efd; color: white; padding: 2rem 0; }
+    .header h1 { margin: 0; font-weight: 300; }
+    .header p { margin: 0.5rem 0 0; opacity: 0.9; }
+    .section-title { font-size: 1.75rem; margin-top: 2rem; margin-bottom: 1rem; color: #212529; border-left: 4px solid #0d6efd; padding-left: 0.5rem; }
+    .footer { text-align: center; padding: 2rem 0; color: #6c757d; font-size: 0.9rem; }
+    @media (max-width: 768px) {
+      .card { flex-direction: column; }
+      .col-md-4 { width: 100%; }
+      .col-md-8 { width: 100%; }
+      .img-fluid { width: 100%; height: 200px; object-fit: cover; }
     }
-
-    .blog-header-logo:hover {
-      text-decoration: none;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-      font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-    }
-
-    .flex-auto {
-      flex: 0 0 auto;
-    }
-
-    .h-250 { height: 250px; }
-    @media (min-width: 768px) {
-      .h-md-250 { height: 250px; }
-    }
-
-    /* Pagination */
-    .blog-pagination {
-      margin-bottom: 4rem;
-    }
-
-    /*
-     * Blog posts
-     */
-    .blog-post {
-      margin-bottom: 4rem;
-    }
-    .blog-post-meta {
-      margin-bottom: 1.25rem;
-      color: #727272;
-    }
-
-    body { padding-top: 3rem; }
-    .blog-header { text-align:center; margin-bottom:2rem; }
-    .blog-title { font-size:2.5rem; font-family:Playfair Display,Georgia,serif; }
-    .blog-description { font-size:1.2rem; color:#6c757d; }
-    .section-title { font-size:1.8rem; margin-top:2rem; margin-bottom:1rem; color:#2c3e50; }
-    .list-group-item { border:none; border-radius:0; }
-    .list-group-item.active { font-weight:500; }
-
-    /* Fallback minimal blog styles */
-    .blog-post { margin-bottom: 4rem; }
-    .blog-post-meta { margin-bottom: 1.25rem; color: #727272; }
-    
-    </style>
+  </style>
 </head>
 <body>
-    <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-                <a class="link-secondary" href="#" aria-label="Subscribe">
-                    <svg class="bi" width="20" height="20"><use xlink:href="#bi-person"/></svg>
-                </a>
-            </div>
-            <div class="col-4 text-center">
-                <a class="blog-header-logo text-dark text-decoration-none large" href="#">Геополитический дайджест</a>
-            </div>
-            <div class="col-4 d-flex justify-content-end align-items-center">
-                <a class="link-secondary" href="#" aria-label="Search">
-                    <svg class="bi" width="20" height="20"><use xlink:href="#bi-search"/></svg>
-                </a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">Подписаться</a>
-            </div>
-        </div>
-    </header>
-
+  <header class="header text-center">
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 blog-main">
-                <h3 class="pb-4 mb-4 fst-italic border-bottom">
-                    Дата: Unknown
-                </h3>
+      <h1 class="display-5">Лента новостей</h1>
+      <p class="lead">Геополитика: новости и анализ</p>
+    </div>
+  </header>
 
-                <h1 id="_1">Геополитический дайджест</h1>
-<p><em>Сгенерировано: 2026-05-10 18:44:27</em></p>
-<h2 id="_2">Новости (Что происходит)</h2>
-<ul>
-<li><a href="https://www.scmp.com/news/world/russia-central-asia/article/3353070/ukraine-reports-multiple-casualties-despite-trump-backed-truce-russia?utm_source=rss_feed">Ukraine reports multiple casualties despite Trump-backed truce with Russia</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 18:01:41 +0000
-  Russian attacks wounded at least nine people in eastern Ukraine on Sunday, the second day of what was supposed to have been a three-day truce with Russia, Ukrainian officials said. Russia also conduct...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/11/1d84e056-e3e4-46ac-9a88-def88f0b5125_9e7eb567.jpg?itok=6cWPKDQx&amp;v=1778436088" /></li>
-<li><a href="https://www.scmp.com/news/world/europe/article/3353069/french-evacuee-hantavirus-hit-ship-shows-symptoms-pm-says?utm_source=rss_feed">French evacuee from hantavirus-hit ship shows ‘symptoms’, PM says</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 16:57:56 +0000
-  One of five French people flown back to France on Sunday from the cruise ship struck by a deadly hantavirus outbreak is showing symptoms of the illness, French Prime Minister Sebastien Lecornu said. “...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/11/6f0f4318-e53f-4e6e-8ce1-dae9522df01b_464113ee.jpg?itok=AhWlsG_U&amp;v=1778432267" /></li>
-<li><a href="https://www.scmp.com/news/world/middle-east/article/3353068/iran-war-not-over-uranium-must-be-removed-israels-netanyahu-says?utm_source=rss_feed">Iran war ‘not over’, uranium must be removed, Israel’s Netanyahu says</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 16:46:42 +0000
-  Iran’s stockpile of enriched uranium must be “taken out” before the US-Israeli war against Iran can be considered over, Israeli Prime Minister Benjamin Netanyahu said in an interview on Sunday. “It’s ...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/11/fe2b7b41-d121-4592-afb7-bd86ed0839d3_814498dd.jpg?itok=RJD0fxZX&amp;v=1778431591" /></li>
-<li><a href="https://www.scmp.com/news/china/diplomacy/article/3353067/china-us-confirm-seoul-trade-talks-days-trump-xi-summit-beijing?utm_source=rss_feed">China, US confirm Seoul trade talks days before Trump-Xi summit in Beijing</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 15:50:56 +0000
-  Chinese Vice-Premier He Lifeng will travel to South Korea this week for trade talks with US Treasury Secretary Scott Bessent, both sides confirmed on Sunday, in the final round of negotiations before ...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/a772cc98-704e-4a6d-811d-8608346cb5c1_328ac46d.jpg?itok=lC4FeH1f&amp;v=1778428247" /></li>
-<li><a href="https://www.scmp.com/news/asia/east-asia/article/3353065/unidentified-aircraft-hit-korean-cargo-ship-hormuz-monday-seoul?utm_source=rss_feed">‘Unidentified aircraft’ hit Korean cargo ship in Hormuz on Monday: Seoul</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 14:57:38 +0000
-  A South Korean cargo ship hit in the Strait of Hormuz six days ago was struck by unidentified aircraft, the foreign ministry in Seoul said on Sunday, days after the fire-damaged HMM Namu arrived in Du...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/2abcf47a-d8c4-47d1-8e59-1d2af10697cd_f1babc88.jpg?itok=Jq9bteuV&amp;v=1778425048" /></li>
-<li><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353063/small-grocers-neighbourhood-links-can-help-them-beat-price-war-experts-say?utm_source=rss_feed">Small grocers’ neighbourhood links can help them beat price war, experts say</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 14:18:22 +0000
-  Hong Kong’s smaller grocers are bracing for pressure amid a fresh wave of price cuts by supermarkets and big retail chains, but some economists say their “neighbourhood connection” could help them sta...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/bfc2fd7b-c3fb-4b8a-8bc3-3af03925df54_9b0ec5f4.jpg?itok=jcMqgh_Q&amp;v=1778422435" /></li>
-<li><a href="https://www.scmp.com/news/asia/southeast-asia/article/3353062/321-foreigners-arrested-indonesia-online-gambling-crackdown?utm_source=rss_feed">321 foreigners arrested in Indonesia online gambling crackdown</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 14:07:53 +0000
-  More than 300 foreign nationals were arrested in a raid on an alleged online gambling operation in the Indonesian capital of Jakarta, police said on Saturday, in one of the country’s largest crackdown...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/8bb42228-a108-4908-ae1d-a1ab3d15b009_edd752fd.jpg?itok=p52Jwz_t&amp;v=1778422063" /></li>
-<li><a href="https://www.scmp.com/news/china/military/article/3353035/could-military-ai-use-be-agenda-when-chinese-and-us-leaders-meet?utm_source=rss_feed">Could military AI use be on the agenda when Chinese and US leaders meet?</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 14:00:07 +0000
-  US President Donald Trump’s landmark visit to China comes as the US-Iran war disrupts global energy supplies, fuels economic uncertainty and adds fresh strain to Washington-Beijing ties. In the latest...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/8ee5595f-7b63-4654-a9c3-f117aab9e175_ae9f68a2.jpg?itok=q9bUW4vI&amp;v=1778401259" /></li>
-<li><a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3353060/hong-kong-man-dies-after-chasing-thief-and-falling-industrial-building?utm_source=rss_feed">Ex-owner of bankrupt bakery dies after chasing thief and falling off building</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 13:22:32 +0000
-  The former owner of a Hong Kong bakery chain that went out of business has died after chasing a suspected thief and falling from an industrial building, the South China Morning Post has learned. The f...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/1e62cda8-4fdc-4b12-8640-8becf15954a0_746cad39.jpg?itok=ahB6kpk-&amp;v=1778419344" /></li>
-<li><a href="https://www.scmp.com/news/hong-kong/health-environment/article/3353059/ai-app-detect-drunk-drivers-through-cantonese-speech-analysis-works?utm_source=rss_feed">AI app to detect drunk drivers through Cantonese speech analysis in the works</a> — <em>South China Morning Post</em> (china) — Sun, 10 May 2026 13:12:46 +0000
-  Hong Kong researchers say they are developing what would be the world’s first AI app that detects intoxication through real-time Cantonese voice analysis, helping users decide whether they are fit to ...
-  <img alt="" src="https://cdn.i-scmp.com/sites/default/files/styles/1280x720/public/d8/images/canvas/2026/05/10/47f7ef52-83d2-4b4c-ab01-06b1356b338b_f5eb9879.jpg?itok=BIburnQn&amp;v=1778418618" /></li>
-<li><a href="https://www.globaltimes.cn/page/202605/1360513.shtml">Tokyo Trial debunks notorious Yasukuni Shrine's inverted narrative</a> — <em>Global Times</em> (china) — Fri, 08 May 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202604/1359873.shtml">DC gala shooting suspect voices grievances against US administration in writings to family: media reports</a> — <em>Global Times</em> (china) — Tue, 28 Apr 2026 10:36:40 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202604/1358941.shtml">Local Insights: At the 13th Baku Global Forum, global participants look to China for new path of multilateralism and stability</a> — <em>Global Times</em> (china) — Wed, 15 Apr 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1357823.shtml">Over 3,000 protests staged across US on one month of strikes against Iran, scale 'suggests mounting public dissatisfaction that risks more chaos': expert</a> — <em>Global Times</em> (china) — Mon, 30 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356805.shtml">China schedules next moonshot this year: developer</a> — <em>Global Times</em> (china) — Thu, 12 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356809.shtml">Nearly 4.9 million visits from Taiwan to mainland in 2025 with one-third made by young people: CPPCC member</a> — <em>Global Times</em> (china) — Thu, 12 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356812.shtml">NPC deputy calls to make comprehensive sex education a formal part of China's basic education curriculum</a> — <em>Global Times</em> (china) — Thu, 12 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356746.shtml">Renowned scholar and political advisor expresses confidence in China's AI development, computing power</a> — <em>Global Times</em> (china) — Wed, 11 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356751.shtml">China's 2026 defense budget set at 1.94 trillion yuan: spokesperson</a> — <em>Global Times</em> (china) — Wed, 11 Mar 2026 00:00:00 GMT</li>
-<li><a href="https://www.globaltimes.cn/page/202603/1356670.shtml">NPC deputy suggests optimizing vacations, breaks to stimulate domestic consumption</a> — <em>Global Times</em> (china) — Tue, 10 Mar 2026 00:00:00 GMT</li>
-</ul>
-<h2 id="_3">Анализ (Почему и что будет)</h2>
-<ul>
-<li><a href="https://meduza.io/news/2026/05/10/ministr-oborony-latvii-podal-v-otstavku-posle-togo-kak-na-territoriyu-strany-zaleteli-dva-drona-so-storony-rossii">Министр обороны Латвии подал в отставку после того, как на территорию страны залетели два украинских дрона</a> — <em>Meduza</em> (russia) — Sun, 10 May 2026 20:01:39 +0300
-<br />
-<p>Министр обороны Латвии Андрис Спрудс подал в отставку после инцидента с двумя беспилотниками, залетевшими в воздушное пространство страны несколько дней назад, сообщил телеканал LSM.<p>
-  ![](https://meduza.io/imgly/share/1778438583/news/2026/05/10/ministr-oborony-latvii-podal-v-otstavku-posle-togo-kak-na-territoriyu-strany-zaleteli-dva-drona-so-storony-rossii)
-- [«Следствие ведут овечки»: уютная детективная комедия с Хью Джекманом и Эммой Томпсон. Антон Долин — о лучшем кино про овец со временен «Барашка Шона»](https://meduza.io/feature/2026/05/10/sledstvie-vedut-ovechki-uyutnaya-detektivnaya-komediya-s-hyu-dzhekmanom-i-emmoy-tompson) — *Meduza* (russia) — Sun, 10 May 2026 19:59:47 +0300
-  <p>В прокат вышла семейная комедия «Следствие ведут овечки». Ее создатели — аниматор Кайл Балда, известный прежде всего мультфильмами о миньонах, и сценарист сериала «Чернобыль» Крейг Мейзин. Фильм ос...
-  ![](https://meduza.io/image/attachments/images/012/162/607/small/qyp5cn5PlqTiIqBBcE-PXg)
-- [«Немного подтолкнули мы его». Зеленский заявил, что сейчас Путин «наконец готов к реальным встречам»](https://meduza.io/news/2026/05/10/nemnogo-podtolknuli-my-ego-zelenskiy-zayavil-chto-seychas-putin-nakonets-gotov-k-realnym-vstrecham) — *Meduza* (russia) — Sun, 10 May 2026 19:28:10 +0300
-  <p>Владимир Зеленский во второй день трехдневного перемирия заявил, что массированных атак со стороны России не было, а Владимир Путин «сам говорит, что наконец готов к реальным встречам».<p>
-  ![](https://meduza.io/imgly/share/1778431444/news/2026/05/10/nemnogo-podtolknuli-my-ego-zelenskiy-zayavil-chto-seychas-putin-nakonets-gotov-k-realnym-vstrecham)
-- [Все еще самый влиятельный демократ. Барак Обама ушел из Белого дома в 2017-м, но до сих пор остается главной надеждой своей партии. Почему от бывшего президента ждут активной борьбы с Трампом? Главное из публикации The New Yorker](https://meduza.io/feature/2026/05/10/vse-esche-samyy-vliyatelnyy-demokrat) — *Meduza* (russia) — Sun, 10 May 2026 19:03:18 +0300
-  <p>Бывший президент США Барак Обама — все еще один из самых популярных американских политиков, хотя он и покинул Белый дом больше девяти лет назад. Опрос, проведенный в 2025 году компанией Gallup, пок...
-  ![](https://meduza.io/image/attachments/images/012/162/995/small/AysmvNqpdO1EI8KR3DE8JA)
-- [Двоих фанатов «Спартака» оштрафовали из-за татуировок с числом 1312. Оно означает протест против полицейских](https://meduza.io/news/2026/05/10/dvoih-fanatov-spartaka-oshtrafovali-iz-za-tatuirovok-s-chislom-1312-ono-oznachaet-protest-protiv-politseyskih) — *Meduza* (russia) — Sun, 10 May 2026 18:46:55 +0300
-  <p>Тушинский районный суд Москвы 8 мая оштрафовал двоих фанатов футбольного клуба «Спартак» на тысячу рублей каждого из-за татуировок с числом 1312 на ногах, обратил внимание телеграм-канал «Осторожно...
-  ![](https://meduza.io/imgly/share/1778428015/news/2026/05/10/dvoih-fanatov-spartaka-oshtrafovali-iz-za-tatuirovok-s-chislom-1312-ono-oznachaet-protest-protiv-politseyskih)
-- [Путин назвал «предпочтительным переговорщиком» по Украине бывшего канцлера ФРГ Шредера. В правительстве Германии это предложение отвергли](https://meduza.io/news/2026/05/10/putin-nazval-predpochtitelnym-peregovorschikom-po-ukraine-byvshego-kantslera-frg-shredera-v-pravitelstve-germanii-eto-predlozhenie-otvergli) — *Meduza* (russia) — Sun, 10 May 2026 18:06:41 +0300
-  <p>В правительстве Германии отвергли предложение Владимира Путина о том, чтобы посредником между Россией и Украиной выступил бывший канцлер ФРГ Герхард Шредер, сообщают Reuters, Süddeutsche Zeitung, S...
-  ![](https://meduza.io/imgly/share/1778426085/news/2026/05/10/putin-nazval-predpochtitelnym-peregovorschikom-po-ukraine-byvshego-kantslera-frg-shredera-v-pravitelstve-germanii-eto-predlozhenie-otvergli)
-- [Война. 1537-й день. Украина и Россия обвиняют друг друга в нарушениях перемирия. Западные СМИ считают сокращенный парад признаком слабости Путина](https://meduza.io/feature/2026/05/10/voyna) — *Meduza* (russia) — Sun, 10 May 2026 17:43:53 +0300
-  <p>«Медуза» с 24 февраля 2022 года в прямом эфире рассказывает о российско-украинской войне. Мы ежедневно публикуем ваши письма, потому что уверены: о войне нужно продолжать говорить. Поделитесь с нам...
-  ![](https://meduza.io/image/attachments/images/012/162/929/small/tlcmGhKZCR8t8oVQfOh3pQ)
-- [«Руководство ФБК отступило от принципов „Не врать и не воровать“». Иван Жданов дал большое интервью Ирине Шихман — о вывозе биоматериалов Навального, ошибках ФБК и своем увольнении](https://meduza.io/feature/2026/05/10/rukovodstvo-fbk-otstupilo-ot-printsipov-ne-vrat-i-ne-vorovat) — *Meduza* (russia) — Sun, 10 May 2026 16:01:26 +0300
-  <p>Бывший директор ФБК Иван Жданов, проработавший в фонде больше 10 лет и уволенный осенью 2025 года, дал большое интервью Ирине Шихман (а первое интервью сразу после ухода он давал «Медузе»). В разго...
-  ![](https://meduza.io/image/attachments/images/012/162/867/small/ZNrTpI21uIxha2QIc_nmHA)
-- [Александр Сокуров не выступил на Венецианской биеннале. Против его участия высказались в открытом письме российские активисты. Среди подписантов — Павел Таланкин и Саша Скочиленко, которую режиссер поддерживал в суде. Дискуссия не утихает уже несколько дней. Главные реакции](https://meduza.io/feature/2026/05/10/aleksandr-sokurov-ne-vystupil-na-venetsianskoy-biennale-protiv-ego-uchastiya-vyskazalis-v-otkrytom-pisme-rossiyskie-aktivisty) — *Meduza* (russia) — Sun, 10 May 2026 15:54:35 +0300
-  <p>Выступление Александра Сокурова на Венецианской биеннале не состоялось. Российский режиссер был приглашен на конференцию «Инакомыслие и мир», но, как сообщили в пресс-службе биеннале, не смог приня...
-  ![](https://meduza.io/image/attachments/images/012/162/777/small/ClGInf3OFvGF78CAX-yLRA)
-- [«Мои слова сейчас активно используют враги России». Журналистка, поздравившая мать пропавшего без вести военного с «двойным праздником», извинилась](https://meduza.io/news/2026/05/10/moi-slova-seychas-aktivno-ispolzuyut-vragi-rossii-zhurnalistka-pozdravivshaya-mat-propavshego-bez-vesti-voennogo-s-dvoynym-prazdnikom-izvinilas) — *Meduza* (russia) — Sun, 10 May 2026 15:53:45 +0300
-  <p>Журналистка телеканала «Кузбасс Первый» Марина Киселева, которая во время шествия «Бессмертного полка» в Кемерово поздравила мать пропавшего без вести участника войны с Украиной с «двойным праздник...
-  ![](https://meduza.io/imgly/share/1778417625/news/2026/05/10/moi-slova-seychas-aktivno-ispolzuyut-vragi-rossii-zhurnalistka-pozdravivshaya-mat-propavshego-bez-vesti-voennogo-s-dvoynym-prazdnikom-izvinilas)
-- [Trump boasts ‘we’re like pirates’, seizing Iran’s ships, as China challenges US sanctions](https://geopoliticaleconomy.com/2026/05/09/trump-pirates-iran-ships-china-us-sanctions/) — *Multipolarista* (alternative) — Sat, 09 May 2026 08:54:43 +0000
-  <p>Donald Trump boasted the US government acts "like pirates", seizing Iran's ships and oil. Meanwhile, Beijing ordered all domestic companies to ignore US sanctions, after Washington hit Chinese firm...
-- [How China prepared for the new global food crisis, caused by the US war on Iran](https://geopoliticaleconomy.com/2026/05/07/china-food-reserves-crisis-war-iran/) — *Multipolarista* (alternative) — Fri, 08 May 2026 05:54:13 +0000
-  <p>The US-Israeli war on Iran has unleashed a massive global food crisis. China is prepared, because its state-owned enterprises maintain the largest grain reserves in human history. This is how they ...
-- [Is another financial crisis brewing in the US economy? Economist Michael Hudson explains the dangers](https://geopoliticaleconomy.com/2026/04/21/private-credit-financial-crisis-us-economy-michael-hudson/) — *Multipolarista* (alternative) — Tue, 21 Apr 2026 13:58:27 +0000
-  <p>Reports suggest the US economy may be on the verge of another financial crisis, with major problems in the $3 trillion private credit market. Economist Michael Hudson explains the dangers of Wall S...
-- [Iran is winning the war with the US. This is how](https://geopoliticaleconomy.com/2026/04/04/iran-winning-war-us-trump/) — *Multipolarista* (alternative) — Sat, 04 Apr 2026 13:39:17 +0000
-  <p>Iran is winning the war started by Trump. This is now admitted even in the Western media. Tehran has destroyed major US military bases in West Asia, expelling American troops to Europe.</p> <p>The ...
-- [The war on Iran is transforming the global economy: Economist Michael Hudson explains how](https://geopoliticaleconomy.com/2026/03/29/war-iran-change-economy-michael-hudson/) — *Multipolarista* (alternative) — Sun, 29 Mar 2026 13:42:37 +0000
-  <p>The US-Israeli war on Iran is altering the geopolitical order, and could cause a global economic crisis. Economist Michael Hudson discusses the shock in the oil market and Tehran's challenge to US ...
-- [West refuses to condemn slavery in UN General Assembly vote](https://geopoliticaleconomy.com/2026/03/25/west-condemn-slavery-un-vote/) — *Multipolarista* (alternative) — Thu, 26 Mar 2026 03:09:26 +0000
-  <p>The Global South voted for a UN General Assembly resolution condemning the transatlantic slave trade as “the gravest crime against humanity”. Europe abstained. The US, Israel, and Argentina voted a...
-- [Asymmetric economic war: Iran challenges US dollar, demanding oil be sold in Chinese yuan, as it targets US corporations](https://geopoliticaleconomy.com/2026/03/17/economic-war-iran-petrodollar-oil-yuan/) — *Multipolarista* (alternative) — Wed, 18 Mar 2026 04:00:07 +0000
-  <p>In response to Trump's war of aggression, Iran is using asymmetric tactics, targeting US corporations and dollar dominance, challenging the petrodollar system, demanding oil sales in Chinese yuan.<...
-- [Militarization of the Arctic: A new arena for US imperial ambition in Cold War Two](https://geopoliticaleconomy.com/2026/03/15/militarization-arctic-us-cold-war-two/) — *Multipolarista* (alternative) — Sun, 15 Mar 2026 10:53:54 +0000
-  <p>Militarization is increasing, transforming the Arctic from a once largely peaceful "exceptional" region into an additional front in Cold War Two, and a new arena for US imperial ambition.</p> <p>Th...
-- [‘Punching them while they’re down’: US & Israel bomb Iran’s schools & hospitals, with ‘no stupid rules of engagement’](https://geopoliticaleconomy.com/2026/03/08/us-israel-bomb-iran-schools-hospitals-collapse/) — *Multipolarista* (alternative) — Sun, 08 Mar 2026 13:07:29 +0000
-  <p>The US and Israel bombed 20 schools and 13 hospitals in Iran in one week. War Secretary Pete Hegseth boasted of unleashing "death and destruction" to provoke societal collapse, with "no stupid rule...
-- [War expands: While bombing Iran, US and Israel attack even more countries](https://geopoliticaleconomy.com/2026/03/05/war-expands-iran-us-israel-countries/) — *Multipolarista* (alternative) — Thu, 05 Mar 2026 13:19:23 +0000
-  <p>After launching a war of aggression against Iran, Israel invaded Lebanon and besieged Gaza. The US is arming Kurdish militants, shooting Pakistani protesters, and fighting in Ecuador. Trump even th...
+  <div class="container py-4">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="section-title">📰 Новости</h2>
+        
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="Ukraine reports multiple casualties despite Trump-backed truce with Russia">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/world/russia-central-asia/article/3353070/ukraine-reports-multiple-casualties-despite-trump-backed-truce-russia?utm_source=rss_feed" target="_blank" rel="noopener">Ukraine reports multiple casualties despite Trump-backed truce with Russia</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 18:01:41 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="French evacuee from hantavirus-hit ship shows ‘symptoms’, PM says">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/world/europe/article/3353069/french-evacuee-hantavirus-hit-ship-shows-symptoms-pm-says?utm_source=rss_feed" target="_blank" rel="noopener">French evacuee from hantavirus-hit ship shows ‘symptoms’, PM says</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 16:57:56 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
----
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="Iran war ‘not over’, uranium must be removed, Israel’s Netanyahu says">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/world/middle-east/article/3353068/iran-war-not-over-uranium-must-be-removed-israels-netanyahu-says?utm_source=rss_feed" target="_blank" rel="noopener">Iran war ‘not over’, uranium must be removed, Israel’s Netanyahu says</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 16:46:42 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-*Принцип чтения: для каждой темы минимум 2 источника с разных сторон.*
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="China, US confirm Seoul trade talks days before Trump-Xi summit in Beijing">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/china/diplomacy/article/3353067/china-us-confirm-seoul-trade-talks-days-trump-xi-summit-beijing?utm_source=rss_feed" target="_blank" rel="noopener">China, US confirm Seoul trade talks days before Trump-Xi summit in Beijing</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 15:50:56 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="‘Unidentified aircraft’ hit Korean cargo ship in Hormuz on Monday: Seoul">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/asia/east-asia/article/3353065/unidentified-aircraft-hit-korean-cargo-ship-hormuz-monday-seoul?utm_source=rss_feed" target="_blank" rel="noopener">‘Unidentified aircraft’ hit Korean cargo ship in Hormuz on Monday: Seoul</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 14:57:38 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-</li>
-</ul>
-            </div><!-- /.blog-main -->
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="Small grocers’ neighbourhood links can help them beat price war, experts say">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/hong-kong/hong-kong-economy/article/3353063/small-grocers-neighbourhood-links-can-help-them-beat-price-war-experts-say?utm_source=rss_feed" target="_blank" rel="noopener">Small grocers’ neighbourhood links can help them beat price war, experts say</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 14:18:22 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-            <div class="col-md-3 offset-md-1 blog-sidebar">
-                <div class="sidebar-module sidebar-module-inset">
-                    <h4>О дайджесте</h4>
-                    <p>Автоматически собранный дайджест геополитических новостей и анализа. Обновляется каждые 3 дня.</p>
-                </div>
-                <div class="sidebar-module">
-                    <h4>Источники</h4>
-                    <ol class="list-unstyled mb-0">
-                        <li>Carnegie Moscow Center</li>
-                        <li>RUSI</li>
-                        <li>Meduza</li>
-                        <li>Chatham House</li>
-                        <li>South China Morning Post</li>
-                        <li>Global Times</li>
-                        <li>The Diplomat</li>
-                        <li>Настоящее Время</li>
-                        <li>Spring96</li>
-                        <li>RT</li>
-                        <li>Multipolarista</li>
-                        <li>Geopolitical Futures</li>
-                        <li>и другие</li>
-                    </ol>
-                </div>
-            </div><!-- /.blog-sidebar -->
-        </div><!-- /.row -->
-    </div><!-- /.container -->
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="321 foreigners arrested in Indonesia online gambling crackdown">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/asia/southeast-asia/article/3353062/321-foreigners-arrested-indonesia-online-gambling-crackdown?utm_source=rss_feed" target="_blank" rel="noopener">321 foreigners arrested in Indonesia online gambling crackdown</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 14:07:53 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <footer class="blog-footer">
-        <p>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</p>
-        <p>
-            <a href="#">Наверх</a>
-        </p>
-    </footer>
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="Could military AI use be on the agenda when Chinese and US leaders meet?">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/china/military/article/3353035/could-military-ai-use-be-agenda-when-chinese-and-us-leaders-meet?utm_source=rss_feed" target="_blank" rel="noopener">Could military AI use be on the agenda when Chinese and US leaders meet?</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 14:00:07 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Bootstrap icons via CDN (optional) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="Ex-owner of bankrupt bakery dies after chasing thief and falling off building">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/hong-kong/law-and-crime/article/3353060/hong-kong-man-dies-after-chasing-thief-and-falling-industrial-building?utm_source=rss_feed" target="_blank" rel="noopener">Ex-owner of bankrupt bakery dies after chasing thief and falling off building</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 13:22:32 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,scmp.com" class="img-fluid rounded-start" alt="AI app to detect drunk drivers through Cantonese speech analysis in the works">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.scmp.com/news/hong-kong/health-environment/article/3353059/ai-app-detect-drunk-drivers-through-cantonese-speech-analysis-works?utm_source=rss_feed" target="_blank" rel="noopener">AI app to detect drunk drivers through Cantonese speech analysis in the works</a></h5>
+        <p class="card-text">*South China Morning Post* (china) — Sun, 10 May 2026 13:12:46 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">scmp.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="Tokyo Trial debunks notorious Yasukuni Shrine's inverted narrative">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202605/1360513.shtml" target="_blank" rel="noopener">Tokyo Trial debunks notorious Yasukuni Shrine's inverted narrative</a></h5>
+        <p class="card-text">*Global Times* (china) — Fri, 08 May 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="DC gala shooting suspect voices grievances against US administration in writings to family: media reports">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202604/1359873.shtml" target="_blank" rel="noopener">DC gala shooting suspect voices grievances against US administration in writings to family: media reports</a></h5>
+        <p class="card-text">*Global Times* (china) — Tue, 28 Apr 2026 10:36:40 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="Local Insights: At the 13th Baku Global Forum, global participants look to China for new path of multilateralism and stability">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202604/1358941.shtml" target="_blank" rel="noopener">Local Insights: At the 13th Baku Global Forum, global participants look to China for new path of multilateralism and stability</a></h5>
+        <p class="card-text">*Global Times* (china) — Wed, 15 Apr 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="Over 3,000 protests staged across US on one month of strikes against Iran, scale 'suggests mounting public dissatisfaction that risks more chaos': expert">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1357823.shtml" target="_blank" rel="noopener">Over 3,000 protests staged across US on one month of strikes against Iran, scale 'suggests mounting public dissatisfaction that risks more chaos': expert</a></h5>
+        <p class="card-text">*Global Times* (china) — Mon, 30 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="China schedules next moonshot this year: developer">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356805.shtml" target="_blank" rel="noopener">China schedules next moonshot this year: developer</a></h5>
+        <p class="card-text">*Global Times* (china) — Thu, 12 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="Nearly 4.9 million visits from Taiwan to mainland in 2025 with one-third made by young people: CPPCC member">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356809.shtml" target="_blank" rel="noopener">Nearly 4.9 million visits from Taiwan to mainland in 2025 with one-third made by young people: CPPCC member</a></h5>
+        <p class="card-text">*Global Times* (china) — Thu, 12 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="NPC deputy calls to make comprehensive sex education a formal part of China's basic education curriculum">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356812.shtml" target="_blank" rel="noopener">NPC deputy calls to make comprehensive sex education a formal part of China's basic education curriculum</a></h5>
+        <p class="card-text">*Global Times* (china) — Thu, 12 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="Renowned scholar and political advisor expresses confidence in China's AI development, computing power">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356746.shtml" target="_blank" rel="noopener">Renowned scholar and political advisor expresses confidence in China's AI development, computing power</a></h5>
+        <p class="card-text">*Global Times* (china) — Wed, 11 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="China's 2026 defense budget set at 1.94 trillion yuan: spokesperson">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356751.shtml" target="_blank" rel="noopener">China's 2026 defense budget set at 1.94 trillion yuan: spokesperson</a></h5>
+        <p class="card-text">*Global Times* (china) — Wed, 11 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,globaltimes.cn" class="img-fluid rounded-start" alt="NPC deputy suggests optimizing vacations, breaks to stimulate domestic consumption">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://www.globaltimes.cn/page/202603/1356670.shtml" target="_blank" rel="noopener">NPC deputy suggests optimizing vacations, breaks to stimulate domestic consumption</a></h5>
+        <p class="card-text">*Global Times* (china) — Tue, 10 Mar 2026 00:00:00 GMT</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">globaltimes.cn</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        <h2 class="section-title">🔍 Анализ</h2>
+        
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Министр обороны Латвии подал в отставку после того, как на территорию страны залетели два украинских дрона">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/news/2026/05/10/ministr-oborony-latvii-podal-v-otstavku-posle-togo-kak-na-territoriyu-strany-zaleteli-dva-drona-so-storony-rossii" target="_blank" rel="noopener">Министр обороны Латвии подал в отставку после того, как на территорию страны залетели два украинских дрона</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 20:01:39 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="«Следствие ведут овечки»: уютная детективная комедия с Хью Джекманом и Эммой Томпсон. Антон Долин — о лучшем кино про овец со временен «Барашка Шона»">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/feature/2026/05/10/sledstvie-vedut-ovechki-uyutnaya-detektivnaya-komediya-s-hyu-dzhekmanom-i-emmoy-tompson" target="_blank" rel="noopener">«Следствие ведут овечки»: уютная детективная комедия с Хью Джекманом и Эммой Томпсон. Антон Долин — о лучшем кино про овец со временен «Барашка Шона»</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 19:59:47 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="«Немного подтолкнули мы его». Зеленский заявил, что сейчас Путин «наконец готов к реальным встречам»">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/news/2026/05/10/nemnogo-podtolknuli-my-ego-zelenskiy-zayavil-chto-seychas-putin-nakonets-gotov-k-realnym-vstrecham" target="_blank" rel="noopener">«Немного подтолкнули мы его». Зеленский заявил, что сейчас Путин «наконец готов к реальным встречам»</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 19:28:10 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Все еще самый влиятельный демократ. Барак Обама ушел из Белого дома в 2017-м, но до сих пор остается главной надеждой своей партии. Почему от бывшего президента ждут активной борьбы с Трампом? Главное из публикации The New Yorker">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/feature/2026/05/10/vse-esche-samyy-vliyatelnyy-demokrat" target="_blank" rel="noopener">Все еще самый влиятельный демократ. Барак Обама ушел из Белого дома в 2017-м, но до сих пор остается главной надеждой своей партии. Почему от бывшего президента ждут активной борьбы с Трампом? Главное из публикации The New Yorker</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 19:03:18 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Двоих фанатов «Спартака» оштрафовали из-за татуировок с числом 1312. Оно означает протест против полицейских">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/news/2026/05/10/dvoih-fanatov-spartaka-oshtrafovali-iz-za-tatuirovok-s-chislom-1312-ono-oznachaet-protest-protiv-politseyskih" target="_blank" rel="noopener">Двоих фанатов «Спартака» оштрафовали из-за татуировок с числом 1312. Оно означает протест против полицейских</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 18:46:55 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Путин назвал «предпочтительным переговорщиком» по Украине бывшего канцлера ФРГ Шредера. В правительстве Германии это предложение отвергли">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/news/2026/05/10/putin-nazval-predpochtitelnym-peregovorschikom-po-ukraine-byvshego-kantslera-frg-shredera-v-pravitelstve-germanii-eto-predlozhenie-otvergli" target="_blank" rel="noopener">Путин назвал «предпочтительным переговорщиком» по Украине бывшего канцлера ФРГ Шредера. В правительстве Германии это предложение отвергли</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 18:06:41 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Война. 1537-й день. Украина и Россия обвиняют друг друга в нарушениях перемирия. Западные СМИ считают сокращенный парад признаком слабости Путина">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/feature/2026/05/10/voyna" target="_blank" rel="noopener">Война. 1537-й день. Украина и Россия обвиняют друг друга в нарушениях перемирия. Западные СМИ считают сокращенный парад признаком слабости Путина</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 17:43:53 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="«Руководство ФБК отступило от принципов „Не врать и не воровать“». Иван Жданов дал большое интервью Ирине Шихман — о вывозе биоматериалов Навального, ошибках ФБК и своем увольнении">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/feature/2026/05/10/rukovodstvo-fbk-otstupilo-ot-printsipov-ne-vrat-i-ne-vorovat" target="_blank" rel="noopener">«Руководство ФБК отступило от принципов „Не врать и не воровать“». Иван Жданов дал большое интервью Ирине Шихман — о вывозе биоматериалов Навального, ошибках ФБК и своем увольнении</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 16:01:26 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="Александр Сокуров не выступил на Венецианской биеннале. Против его участия высказались в открытом письме российские активисты. Среди подписантов — Павел Таланкин и Саша Скочиленко, которую режиссер поддерживал в суде. Дискуссия не утихает уже несколько дней. Главные реакции">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/feature/2026/05/10/aleksandr-sokurov-ne-vystupil-na-venetsianskoy-biennale-protiv-ego-uchastiya-vyskazalis-v-otkrytom-pisme-rossiyskie-aktivisty" target="_blank" rel="noopener">Александр Сокуров не выступил на Венецианской биеннале. Против его участия высказались в открытом письме российские активисты. Среди подписантов — Павел Таланкин и Саша Скочиленко, которую режиссер поддерживал в суде. Дискуссия не утихает уже несколько дней. Главные реакции</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 15:54:35 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,meduza.io" class="img-fluid rounded-start" alt="«Мои слова сейчас активно используют враги России». Журналистка, поздравившая мать пропавшего без вести военного с «двойным праздником», извинилась">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://meduza.io/news/2026/05/10/moi-slova-seychas-aktivno-ispolzuyut-vragi-rossii-zhurnalistka-pozdravivshaya-mat-propavshego-bez-vesti-voennogo-s-dvoynym-prazdnikom-izvinilas" target="_blank" rel="noopener">«Мои слова сейчас активно используют враги России». Журналистка, поздравившая мать пропавшего без вести военного с «двойным праздником», извинилась</a></h5>
+        <p class="card-text">*Meduza* (russia) — Sun, 10 May 2026 15:53:45 +0300</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">meduza.io</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="Trump boasts ‘we’re like pirates’, seizing Iran’s ships, as China challenges US sanctions">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/05/09/trump-pirates-iran-ships-china-us-sanctions/" target="_blank" rel="noopener">Trump boasts ‘we’re like pirates’, seizing Iran’s ships, as China challenges US sanctions</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Sat, 09 May 2026 08:54:43 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="How China prepared for the new global food crisis, caused by the US war on Iran">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/05/07/china-food-reserves-crisis-war-iran/" target="_blank" rel="noopener">How China prepared for the new global food crisis, caused by the US war on Iran</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Fri, 08 May 2026 05:54:13 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="Is another financial crisis brewing in the US economy? Economist Michael Hudson explains the dangers">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/04/21/private-credit-financial-crisis-us-economy-michael-hudson/" target="_blank" rel="noopener">Is another financial crisis brewing in the US economy? Economist Michael Hudson explains the dangers</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Tue, 21 Apr 2026 13:58:27 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="Iran is winning the war with the US. This is how">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/04/04/iran-winning-war-us-trump/" target="_blank" rel="noopener">Iran is winning the war with the US. This is how</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Sat, 04 Apr 2026 13:39:17 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="The war on Iran is transforming the global economy: Economist Michael Hudson explains how">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/29/war-iran-change-economy-michael-hudson/" target="_blank" rel="noopener">The war on Iran is transforming the global economy: Economist Michael Hudson explains how</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Sun, 29 Mar 2026 13:42:37 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="West refuses to condemn slavery in UN General Assembly vote">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/25/west-condemn-slavery-un-vote/" target="_blank" rel="noopener">West refuses to condemn slavery in UN General Assembly vote</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Thu, 26 Mar 2026 03:09:26 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="Asymmetric economic war: Iran challenges US dollar, demanding oil be sold in Chinese yuan, as it targets US corporations">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/17/economic-war-iran-petrodollar-oil-yuan/" target="_blank" rel="noopener">Asymmetric economic war: Iran challenges US dollar, demanding oil be sold in Chinese yuan, as it targets US corporations</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Wed, 18 Mar 2026 04:00:07 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="Militarization of the Arctic: A new arena for US imperial ambition in Cold War Two">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/15/militarization-arctic-us-cold-war-two/" target="_blank" rel="noopener">Militarization of the Arctic: A new arena for US imperial ambition in Cold War Two</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Sun, 15 Mar 2026 10:53:54 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="‘Punching them while they’re down’: US & Israel bomb Iran’s schools & hospitals, with ‘no stupid rules of engagement’">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/08/us-israel-bomb-iran-schools-hospitals-collapse/" target="_blank" rel="noopener">‘Punching them while they’re down’: US & Israel bomb Iran’s schools & hospitals, with ‘no stupid rules of engagement’</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Sun, 08 Mar 2026 13:07:29 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card mb-4 shadow-sm">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="https://source.unsplash.com/random/400x250/?news,geopoliticaleconomy.com" class="img-fluid rounded-start" alt="War expands: While bombing Iran, US and Israel attack even more countries">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><a href="https://geopoliticaleconomy.com/2026/03/05/war-expands-iran-us-israel-countries/" target="_blank" rel="noopener">War expands: While bombing Iran, US and Israel attack even more countries</a></h5>
+        <p class="card-text">*Multipolarista* (alternative) — Thu, 05 Mar 2026 13:19:23 +0000</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <small class="text-muted">geopoliticaleconomy.com</small>
+          <small class="text-muted">10 May 2026</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      <div class="col-lg-4">
+        <div class="sticky-top bg-light p-3 rounded">
+          <h5>О проекте</h5>
+          <p class="small">Автоматически собранный дайджест геополитических новостей и анализа. Обновляется каждые 3 дня.</p>
+          <hr>
+          <h6>Источники</h6>
+          <ul class="list-unstyled small">
+            <li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>scmp.com</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>globaltimes.cn</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>meduza.io</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li><li>geopoliticaleconomy.com</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</p>
+      <p><a href="#" class="text-decoration-none">Наверх</a></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
