@@ -1,25 +1,93 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-bs-theme="auto">
 <head>
     <meta charset="UTF-8">
-    <title>Геополитический дайджест</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Геополитический дайджест">
+    <title>Геополитический дайджест</title>
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: Georgia, serif; line-height: 1.6; margin: 0; padding: 1rem; background:#fafafa; color:#333; }
-        h1, h2, h3 { color:#2c3e50; }
-        a { color:#1a73e8; text-decoration:none; }
-        a:hover { text-decoration:underline; }
-        .meta { color:#777; font-size:0.9rem; margin-bottom:1.5rem; }
-        .section { margin-top:2rem; }
-        hr { border:0; border-top:1px solid #ddd; margin:2rem 0; }
-        footer { margin-top:3rem; font-size:0.85rem; color:#777; text-align:center; }
+/* stylelint-disable @stylistic/selector-list-comma-newline-after */
+
+.blog-header-logo {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+  font-size: 2.25rem;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
+}
+
+.flex-auto {
+  flex: 0 0 auto;
+}
+
+.h-250 { height: 250px; }
+@media (min-width: 768px) {
+  .h-md-250 { height: 250px; }
+}
+
+/* Pagination */
+.blog-pagination {
+  margin-bottom: 4rem;
+}
+
+/*
+ * Blog posts
+ */
+.blog-post {
+  margin-bottom: 4rem;
+}
+.blog-post-meta {
+  margin-bottom: 1.25rem;
+  color: #727272;
+}
+
+
+body { padding-top: 3rem; }
+.blog-header { text-align:center; margin-bottom:2rem; }
+.blog-title { font-size:2.5rem; font-family:Playfair Display,Georgia,serif; }
+.blog-description { font-size:1.2rem; color:#6c757d; }
+.section-title { font-size:1.8rem; margin-top:2rem; margin-bottom:1rem; color:#2c3e50; }
+.list-group-item { border:none; border-radius:0; }
+.list-group-item.active { font-weight:500; }
+
     </style>
 </head>
 <body>
-    <h1>Геополитический дайджест</h1>
-    <div class="meta">Сгенерировано: 2026-05-10 16:24:55</div>
-    <div class="content">
-<h1 id="_1">Геополитический дайджест</h1>
+    
+<header class="blog-header py-3">
+    <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-4 pt-1">
+            <a class="link-secondary" href="#" aria-label="Subscribe">
+                <svg class="bi" width="20" height="20"><use xlink:href="#bi-person"/></svg>
+            </a>
+        </div>
+        <div class="col-4 text-center">
+            <a class="blog-header-logo text-dark text-decoration-none large" href="#">Геополитический дайджест</a>
+        </div>
+        <div class="col-4 d-flex justify-content-end align-items-center">
+            <a class="link-secondary" href="#" aria-label="Search">
+                <svg class="bi" width="20" height="20"><use xlink:href="#bi-search"/></svg>
+            </a>
+            <a class="btn btn-sm btn-outline-secondary" href="#">Подписаться</a>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 blog-main">
+            <h3 class="pb-4 mb-4 fst-italic border-bottom">
+                Дата: 10 May 2026
+            </h3>
+
+            <h1 id="_1">Геополитический дайджест</h1>
 <p><em>Сгенерировано: 2026-05-10 10:03:50</em></p>
 <h2 id="_2">Новости (Что происходит)</h2>
 <ul>
@@ -69,9 +137,46 @@
 </ul>
 <hr />
 <p><em>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</em></p>
-    </div>
-    <footer>
-        <p>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</p>
-    </footer>
+
+        </div><!-- /.blog-main -->
+
+        <div class="col-md-3 offset-md-1 blog-sidebar">
+            <div class="sidebar-module sidebar-module-inset">
+                <h4>О дайджесте</h4>
+                <p>Автоматически собранный дайджест геополитических новостей и анализа. Обновляется каждые 3 дня.</p>
+            </div>
+            <div class="sidebar-module">
+                <h4>Источники</h4>
+                <ol class="list-unstyled mb-0">
+                    <li>Carnegie Moscow Center</li>
+                    <li>RUSI</li>
+                    <li>Meduza</li>
+                    <li>Chatham House</li>
+                    <li>South China Morning Post</li>
+                    <li>Global Times</li>
+                    <li>The Diplomat</li>
+                    <li>Настоящее Время</li>
+                    <li>Spring96</li>
+                    <li>RT</li>
+                    <li>Multipolarista</li>
+                    <li>Geopolitical Futures</li>
+                    <li>и другие</li>
+                </ol>
+            </div>
+        </div><!-- /.blog-sidebar -->
+
+    </div><!-- /.row -->
+
+</div><!-- /.container -->
+
+<footer class="blog-footer">
+    <p>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</p>
+    <p>
+        <a href="#">Наверх</a>
+    </p>
+</footer>
+
+<!-- Bootstrap icons via CDN (optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
