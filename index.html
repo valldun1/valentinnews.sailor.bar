@@ -1,1154 +1,1081 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Лента новостей — пользовательская подборка</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body { background-color: #f8f9fa; }
-    .header { background: #0d6efd; color: white; padding: 2rem 0; }
-    .header h1 { margin: 0; font-weight: 300; }
-    .header p { margin: 0.5rem 0 0; opacity: 0.9; }
-    .section-title { font-size: 1.75rem; margin-top: 2rem; margin-bottom: 1rem; color: #212529; border-left: 4px solid #0d6efd; padding-left: 0.5rem; }
-    .footer { text-align: center; padding: 2rem 0; color: #6c757d; font-size: 0.9rem; }
-    @media (max-width: 768px) {
-      .card { flex-direction: column; }
-      .col-md-4 { width: 100%; }
-      .col-md-8 { width: 100%; }
-      .img-fluid { width: 100%; height: 200px; object-fit: cover; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ежедневная газета — 13.05.2026</title>
+    <meta name="robots" content="noindex, nofollow">
+    <style>
+        :root {
+            --bg: #0f0f1a;
+            --card-bg: #1a1a2e;
+            --card-hover: #222240;
+            --text: #e0e0e0;
+            --text-muted: #8888aa;
+            --border: #2a2a4a;
+            --accent: #4a6cf7;
+            --like-color: #ff4757;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+            margin-bottom: 24px;
+        }
+        
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 16px;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        
+        .site-title {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #4a6cf7, #a855f7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+        
+        .site-title small {
+            font-size: 14px;
+            -webkit-text-fill-color: var(--text-muted);
+            font-weight: 400;
+        }
+        
+        .date-badge {
+            background: var(--card-bg);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+        }
+        
+        /* Currency Bar */
+        .currency-bar {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px 20px;
+            margin-top: 16px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+        
+        .currency-label {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+        
+        .currency-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 15px;
+            padding: 4px 10px;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .currency-code {
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .currency-value {
+            font-weight: 600;
+            font-variant-numeric: tabular-nums;
+        }
+        
+        .currency-change {
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .currency-item.up .currency-change { color: #2ecc71; }
+        .currency-item.down .currency-change { color: #e74c3c; }
+        
+        /* Category Section */
+        .category-section {
+            margin-bottom: 28px;
+        }
+        
+        .category-header {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .count-badge {
+            font-size: 13px;
+            background: var(--card-bg);
+            padding: 2px 10px;
+            border-radius: 12px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        
+        /* Curated article cards */
+        .articles-curated {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        
+        .article-curated {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            overflow: hidden;
+            transition: background 0.2s, border-color 0.2s;
+        }
+        
+        .article-curated:hover {
+            background: var(--card-hover);
+            border-color: var(--accent);
+        }
+        
+        .article-curated-main {
+            display: flex;
+            gap: 16px;
+            padding: 14px 18px;
+        }
+        
+        .article-curated-image {
+            flex-shrink: 0;
+            width: 140px;
+            height: 100px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #2a2a4a;
+        }
+        
+        .article-curated-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .article-curated-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .article-curated-title {
+            font-size: 17px;
+            font-weight: 700;
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+        
+        .article-curated-title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .article-curated-title a:hover {
+            color: var(--accent);
+        }
+        
+        .article-meta {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .article-source {
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .article-summary {
+            font-size: 14px;
+            color: #b0b0cc;
+            line-height: 1.5;
+        }
+        
+        .article-summary .ai-badge {
+            background: linear-gradient(135deg, #4a6cf7, #a855f7);
+            color: white;
+            font-size: 10px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            margin-right: 6px;
+        }
+        
+        .article-original {
+            display: inline-block;
+            margin-top: 6px;
+            font-size: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+        
+        .article-original:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Like button */
+        .like-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 4px 8px;
+            border-radius: 8px;
+            transition: color 0.2s, background 0.2s;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+        
+        .like-btn:hover {
+            background: rgba(255,71,87,0.1);
+            color: var(--like-color);
+        }
+        
+        .like-btn.liked {
+            color: var(--like-color);
+        }
+        
+        .article-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 6px;
+        }
+        
+        /* Feed articles (compact) */
+        .feed-section {
+            margin-top: 20px;
+            border-top: 1px solid var(--border);
+            padding-top: 20px;
+        }
+        
+        .feed-header {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .feed-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 10px;
+        }
+        
+        .feed-item {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 12px 14px;
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            transition: background 0.2s;
+        }
+        
+        .feed-item:hover {
+            background: var(--card-hover);
+        }
+        
+        .feed-item-image {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            border-radius: 8px;
+            overflow: hidden;
+            background: #2a2a4a;
+        }
+        
+        .feed-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .feed-item-content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .feed-item-title {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .feed-item-title a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        .feed-item-title a:hover {
+            color: var(--accent);
+        }
+        
+        .feed-item-meta {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+        
+        .feed-item-source {
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+            margin-top: 30px;
+        }
+        
+        .footer a { color: var(--accent); text-decoration: none; }
+
+        /* Like counter */
+        .like-count {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .article-curated-main {
+                flex-direction: column;
+            }
+            .article-curated-image {
+                width: 100%;
+                height: 180px;
+            }
+            .feed-list {
+                grid-template-columns: 1fr;
+            }
+            .header-top {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .site-title {
+                font-size: 22px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .article-curated-image {
+                height: 140px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header text-center">
+    <header class="header">
+        <div class="header-inner">
+            <div class="header-top">
+                <div class="site-title">
+                    📰 Ежедневная газета <small>· valentinnews</small>
+                </div>
+                <div class="date-badge">📅 13.05.2026</div>
+            </div>
+            
+            <div class="currency-bar">
+                <span class="currency-label">💱 Курсы ЦБ</span>
+                
+            <div class="currency-item down">
+                <span class="currency-code">USD</span>
+                <span class="currency-value">73.34</span>
+                <span class="currency-change">↓0.45</span>
+            </div>
+            <div class="currency-item down">
+                <span class="currency-code">EUR</span>
+                <span class="currency-value">85.90</span>
+                <span class="currency-change">↓1.48</span>
+            </div>
+            <div class="currency-item down">
+                <span class="currency-code">CNY</span>
+                <span class="currency-value">10.79</span>
+                <span class="currency-change">↓0.06</span>
+            </div>
+            <div class="currency-item down">
+                <span class="currency-code">GBP</span>
+                <span class="currency-value">99.20</span>
+                <span class="currency-change">↓1.44</span>
+            </div>
+            </div>
+        </div>
+    </header>
+    
     <div class="container">
-      <h1 class="display-5">Лента новостей</h1>
-      <p class="lead">Подборка: Lenta.ru, Habr, AI-агенты, разработка, космос</p>
-    </div>
-  </header>
-
-  <div class="container py-4">
-    <div class="row">
-      <div class="col-lg-8">
-        <h2 class="section-title">Lenta.ru</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Додик раскрыл цель поддержки Украины со стороны Германии">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/dodik-raskryl-tsel-podderzhki-ukrainy-so-storony-germanii/" target="_blank" rel="noopener">Додик раскрыл цель поддержки Украины со стороны Германии</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513103010187/pic_fc581746d5104b0f18ae4a55da9ce498.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        
+        <div class="category-section">
+            <h2 class="category-header" style="border-left: 4px solid #1a5276; padding-left: 12px; color: #1a5276;">
+                🔵 Кремль / Москва <span class="count-badge">5</span>
+            </h2>
+            <div class="articles-curated">
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/439978eff7d6c848/600/400" alt="Воробьев изучил работу железнодорожного техникума в Орехово-Зуеве" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://ria.ru/20260513/orekhovo-zuevo-2092294792.html" target="_blank" rel="noopener">Воробьев изучил работу железнодорожного техникума в Орехово-Зуеве</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
+                            
+                        </div>
+                        
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="eee22c1c" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260513/orekhovo-zuevo-2092294792.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/d4e19aae22d8901c/600/400" alt="&quot;Зенит&quot; обыграли &quot;Белогорье&quot; в &quot;Финале шести&quot; Кубка России" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://ria.ru/20260513/zenit-2092296487.html" target="_blank" rel="noopener">&quot;Зенит&quot; обыграли &quot;Белогорье&quot; в &quot;Финале шести&quot; Кубка России</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
+                            
+                        </div>
+                        
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="c5c94949" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260513/zenit-2092296487.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527688,#000)"><img src="https://cdnn21.img.ria.ru/images/140042/73/1400427368_0:0:3202:1801_650x0_80_0_0_f8285b1600b45dbc208f28f98c3f7ab3.jpg" alt="Миротворцы ООН заявили о взрывах беспилотников у штаб-квартиры в Ливане" loading="lazy" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://ria.ru/20260513/oon-2092296173.html" target="_blank" rel="noopener">Миротворцы ООН заявили о взрывах беспилотников у штаб-квартиры в Ливане</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
+                            
+                        </div>
+                        
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="7a318f0b" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260513/oon-2092296173.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/937cd0153a3c6fcf/600/400" alt="Ефимов: в Мневниковской пойме установили 15 зарядных станций" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://ria.ru/20260513/efimov-2092296057.html" target="_blank" rel="noopener">Ефимов: в Мневниковской пойме установили 15 зарядных станций</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
+                            
+                        </div>
+                        
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="cb3e01ef" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260513/efimov-2092296057.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527688,#000)"><img src="https://cdnn21.img.ria.ru/images/155214/54/1552145477_0:0:2677:1506_650x0_80_0_0_21537c45dc6f6048945711f1e3e2896f.jpg" alt="Россия выступает за стабилизацию в Персидском заливе, заявили в Совфеде" loading="lazy" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://ria.ru/20260513/rossiya-2092295688.html" target="_blank" rel="noopener">Россия выступает за стабилизацию в Персидском заливе, заявили в Совфеде</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
+                            
+                        </div>
+                        
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="c269ea02" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260513/rossiya-2092295688.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Сын участника СВО вступился за мать и был избит мигрантом">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/syn-uchastnika-svo-vstupilsya-za-mat-i-byl-izbit-migrantom/" target="_blank" rel="noopener">Сын участника СВО вступился за мать и был избит мигрантом</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513100514012/pic_1c1e3c37c87eb2a78e5488e5fb0e9bdd.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        <div class="category-section">
+            <h2 class="category-header" style="border-left: 4px solid #b7950b; padding-left: 12px; color: #b7950b;">
+                🟡 Китай <span class="count-badge">3</span>
+            </h2>
+            <div class="articles-curated">
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b44,#b7950b11)"><img src="https://picsum.photos/seed/dd6bb5c3087c6d0a/600/400" alt="美联储“褐皮书”：美国经济不确定性居高位　关税推高物价" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494887.html" target="_blank" rel="noopener">美联储“褐皮书”：美国经济不确定性居高位　关税推高物价</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            
+                        </div>
+                        <div class="article-summary">新华社纽约6月4日电（记者刘亚南）美国联邦储备委员会4日发布的全国经济形势调查报告显示，美国经济和政策的不确定性处于高位，对企业和家庭造成不利影响，关税上调则带来成本和物价上涨压力。 　　根据美国“联邦储备法”，美国全国划分为12个联邦储备区，每区设立一家联邦储备银行。该报告根据12家联邦储备银行的最新调查结果编制而成，也称“褐皮书”。 　　报告显示，自4月下旬以来，美国经济活动整体出现小幅下降，</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="eacc4011" title="Нравится">🤍</button>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494887.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b44,#b7950b11)"><img src="https://picsum.photos/seed/f386841c7edb7962/600/400" alt="商务部：中方对合规稀土出口许可申请将予以批准" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494861.html" target="_blank" rel="noopener">商务部：中方对合规稀土出口许可申请将予以批准</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            
+                        </div>
+                        <div class="article-summary">新华社北京6月5日电（记者谢希瑶）商务部新闻发言人何咏前在5日举行的例行新闻发布会上答记者问时表示，稀土等相关物项具有明显的军民两用属性，对其实施出口管制是国际通行做法。中国政府依法依规对两用物项相关出口许可申请进行审查，对符合规定的申请，中方将予以批准，促进便利合规贸易。</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="77fefedb" title="Нравится">🤍</button>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494861.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b44,#b7950b11)"><img src="https://picsum.photos/seed/c376b2dceac3406f/600/400" alt="外交部：中国愿继续与各方一道推动共建清洁、美丽、可持续的世界" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494859.html" target="_blank" rel="noopener">外交部：中国愿继续与各方一道推动共建清洁、美丽、可持续的世界</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            
+                        </div>
+                        <div class="article-summary">新华社北京6月5日电（记者袁睿）6月5日是世界环境日。外交部发言人林剑5日表示，中国一直是绿色发展的坚定行动派，也是全球绿色转型的重要贡献者。中国愿继续以“赋能型大国”的担当，与各方一道履行共同但有区别的责任，推动共建清洁、美丽、可持续的世界。 当日例行记者会上，有记者问：6月5日是世界环境日，有评论称，近年来中国引领全球绿色转型，在可再生能源开发等领域取得显著成就，并帮助其他发展中国家实施能源转</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="6b509eb2" title="Нравится">🤍</button>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494859.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Перспективы возобновления переговоров России и Украины при посредничестве США оценили">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/perspektivy-vozobnovleniya-peregovorov-rossii-i-ukrainy-pri-posrednichestve-ssha-otsenili/" target="_blank" rel="noopener">Перспективы возобновления переговоров России и Украины при посредничестве США оценили</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513103141567/pic_2c9ff6fcbcd61a798f5c912016da452e.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        <div class="category-section">
+            <h2 class="category-header" style="border-left: 4px solid #27ae60; padding-left: 12px; color: #27ae60;">
+                🟢 Беларусь <span class="count-badge">2</span>
+            </h2>
+            <div class="articles-curated">
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/eb2c3465a8cf7fe019b2e92fe289a282.jpg" alt="В соцсетях обсуждают фестиваль огня в зоопарке. Руководство: «Животных спрячем»" loading="lazy" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://people.onliner.by/2026/05/13/v-socsetyax-obsuzhdayut-festival-ognya-v-zooparke-rukovodstvo-zhivotnyx-spryachem" target="_blank" rel="noopener">В соцсетях обсуждают фестиваль огня в зоопарке. Руководство: «Животных спрячем»</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#27ae6022;color:#27ae60">ONLINER (Беларусь)</span>
+                            
+                        </div>
+                        <div class="article-summary">В последние несколько дней в Threads обсуждают локацию, выбранную в этом году для проведения Фестиваля огня — это территория Минского зоопарка. Пользователи волнуются за состояние животных, которые мо</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="9c7d79d6" title="Нравится">🤍</button>
+                            <a href="https://people.onliner.by/2026/05/13/v-socsetyax-obsuzhdayut-festival-ognya-v-zooparke-rukovodstvo-zhivotnyx-spryachem" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/77928b7c249d0f8d61508a1e86177f5d.jpg" alt="Популярная у белорусских туристов страна сделала визы бесплатными" loading="lazy" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://people.onliner.by/2026/05/13/shri-lanka-sdelaet-vizy-dlya-belorusov-besplatnymi" target="_blank" rel="noopener">Популярная у белорусских туристов страна сделала визы бесплатными</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#27ae6022;color:#27ae60">ONLINER (Беларусь)</span>
+                            
+                        </div>
+                        <div class="article-summary">Шри-Ланка с 25 мая сделает визы для белорусов бесплатными. Об этом заявил министр иностранных дел Беларуси Максим Рыженков по итогам переговоров с министром иностранных дел, трудоустройства за рубежом</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="817498fe" title="Нравится">🤍</button>
+                            <a href="https://people.onliner.by/2026/05/13/shri-lanka-sdelaet-vizy-dlya-belorusov-besplatnymi" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Назван неожиданный продукт для облегчения запора">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/nazvan-neozhidannyy-produkt-dlya-oblegcheniya-zapora/" target="_blank" rel="noopener">Назван неожиданный продукт для облегчения запора</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/12/11/20260512110514178/pic_ab4e4191900e40263f5b24bc89d76403.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        <div class="category-section">
+            <h2 class="category-header" style="border-left: 4px solid #c0392b; padding-left: 12px; color: #c0392b;">
+                🔴 Запад / Америка <span class="count-badge">1</span>
+            </h2>
+            <div class="articles-curated">
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#c0392b88,#000)"><img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7a91/live/7ee54690-4edd-11f1-b55d-0f258dce1735.jpg" alt="Война в Украине: Россия запустила более 800 дронов, сообщил Зеленский; погибли шесть человек" loading="lazy" onerror="this.style.display='none'"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://www.bbc.co.uk/russian/live/cy52r3d960lt?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Война в Украине: Россия запустила более 800 дронов, сообщил Зеленский; погибли шесть человек</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#c0392b22;color:#c0392b">BBC Russian</span>
+                            
+                        </div>
+                        <div class="article-summary">Последние новости, комментарии и видео о войне России против Украины.</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="e909b7a8" title="Нравится">🤍</button>
+                            <a href="https://www.bbc.co.uk/russian/live/cy52r3d960lt?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="В Windows обнаружили более 100 уязвимостей">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/flaws/" target="_blank" rel="noopener">В Windows обнаружили более 100 уязвимостей</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513100527589/pic_b1a93e39d9f4e7024631a596998ee44f.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        <div class="category-section">
+            <h2 class="category-header" style="border-left: 4px solid #8e44ad; padding-left: 12px; color: #8e44ad;">
+                🤖 AI / IT / Роботы <span class="count-badge">7</span>
+            </h2>
+            <div class="articles-curated">
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/a7d796a407f71ac3/600/400" alt="Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://arxiv.org/abs/2605.08200" target="_blank" rel="noopener">Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
+                            
+                        </div>
+                        <div class="article-summary">arXiv:2605.08200v1 Announce Type: new 
+Abstract: A pervasive intuition holds that vision-language models (VLMs) are most trustworthy when their attention maps look sharp: concentrated attention on the</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="a7b8fa7f" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.08200" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/7708947dcb14be63/600/400" alt="Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://arxiv.org/abs/2605.08220" target="_blank" rel="noopener">Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
+                            
+                        </div>
+                        <div class="article-summary">arXiv:2605.08220v1 Announce Type: new 
+Abstract: The automated extraction of data from scientific charts is a critical task for large-scale literature analysis. While multimodal Large Language Models </div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="49928d3f" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.08220" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/a726c2434025a048/600/400" alt="Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria" loading="lazy"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://arxiv.org/abs/2605.08354" target="_blank" rel="noopener">Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
+                            
+                        </div>
+                        <div class="article-summary">arXiv:2605.08354v1 Announce Type: new 
+Abstract: Aligning multimodal generative models with human preferences demands reward signals that respect the compositional, multi-dimensional structure of huma</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="5a402384" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.08354" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Названа причина побоища на российской птицефабрике">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/nazvana-prichina-poboischa-na-rossiyskoy-ptitsefabrike/" target="_blank" rel="noopener">Названа причина побоища на российской птицефабрике</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513102628246/pic_483a969bb76aa5e199b52f5c7e6ade4c.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
+        
+        <div class="feed-section">
+            <div class="feed-header">
+                📋 Ещё в ленте · 16 новостей
+            </div>
+            <div class="feed-list">
+                
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e5/0a/14/1755348606_0:66:2880:1686_650x0_80_0_0_a6f85ef4485d8773c854e052f11a6dd6.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://ria.ru/20260513/dud-2092295520.html" target="_blank" rel="noopener">Дудю* грозит штраф до 50 тысяч рублей за нарушение закона об иноагентах</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="7e54230a" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/b905b8770cb4012c/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://ria.ru/20260513/muzetti-2092295077.html" target="_blank" rel="noopener">Музетти снялся с &quot;Ролан Гаррос&quot; из-за травмы</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="eef61dc9" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/aa9ea2a7449b834d/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://ria.ru/20260513/nato-2092294529.html" target="_blank" rel="noopener">Рютте: НАТО останется трансатлантическим, но ЕС нужно взять ответственность</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="372edee9" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e8/04/06/1938272634_170:635:1320:1282_650x0_80_0_0_4a2e04249f616635fa34a2c68fb13187.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://ria.ru/20260513/ataka-2092294188.html" target="_blank" rel="noopener">Мужчина получил ранения при атаке ВСУ в Курской области</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="9f7e437a" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#b7950b22"><img src="https://picsum.photos/seed/317b501ab9b87eb6/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494817.html" target="_blank" rel="noopener">来自神舟二十号的“太空问候”！中国航天员为世博会中国馆送祝福</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="ed910d36" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#b7950b22"><img src="https://picsum.photos/seed/6f75ebc5524c8e61/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494811.html" target="_blank" rel="noopener">外交部回应美方宣布将对哈佛大学国际学生实行签证限制</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="9008b49a" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#b7950b22"><img src="https://picsum.photos/seed/f42fcab3de3ef8b6/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494622.html" target="_blank" rel="noopener">中日气候变化问题专家交流会在东京举行</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="70b1229e" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#b7950b22"><img src="https://picsum.photos/seed/ab6cdc1d5022c8fd/600/400" alt="" loading="lazy"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494621.html" target="_blank" rel="noopener">法国巴黎西岱大学孔院勇夺第24届“汉语桥”世界大学生中文比赛法国冠军</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="88e61a41" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/e7de3602331f8a71cb8a7deec7e35c8c.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://people.onliner.by/2026/05/13/samye-samye-goroda-belarusi" target="_blank" rel="noopener">Где больше всего женщин и велосипедов? Ищем «самые-самые» города Беларуси — помогайте</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="e32456c1" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/b61f94df57f7aa5e146e2c3ceffe5591.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://people.onliner.by/2026/05/13/epidemiologi-rasskazali-kak-chasto-belorusy-stalkivayutsya-s-xantavirusami" target="_blank" rel="noopener">Хантавирус в Беларуси: специалисты о рисках заражения и симптомах</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="5ad70d93" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/fcc0679f62004da5d73d7d6cd91b57b8.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://people.onliner.by/2026/05/13/v-minskom-metro-umer-passazhir" target="_blank" rel="noopener">«Стало плохо в вагоне». В минском метро умер пассажир</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="8b231965" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/625a6c3819d357a2bcb9e1efa1c173b0.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://people.onliner.by/2026/05/13/krizis-zhivogo-obshheniya-v-parlamente-rasskazali-pochemu-belorusy-ne-zhenyatsya" target="_blank" rel="noopener">«Кризис живого общения». В парламенте рассказали, почему белорусы не женятся</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="166beb38" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/056d/live/8e7b4680-4eca-11f1-9212-dfb4afb0b88f.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/cx213v9lz1po?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Более 1700 пассажиров круизного лайнера помещены на карантин из-за вспышки желудочно-кишечного заболевания</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="828767e5" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/951a/live/6fe18440-4edf-11f1-88a2-2b60a3feece0.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/c707x84lgx8o?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Чем опасен хантавирус и возможна ли новая пандемия? Объясняет биолог Ирина Якутенко в подкасте «Что это было?»</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="72aaa179" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/5bb6/live/ac24a260-4ec2-11f1-9226-1f41f7d44e1f.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/c4g4l5ll3dvo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">В новом расследовании Израиля утверждается, что в ходе атак 7 октября ХАМАС использовал сексуализированное насилие в качестве оружия</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="4f570268" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/51e9/live/6d3c9b70-4ebd-11f1-9bd8-0fb4c27bcee7.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/cwy21dezjvzo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">«Хезболла» не хочет прямых переговоров Ливана с Израилем. Они должны начаться в четверг</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="f8a911d8" title="Нравится">🤍</button>
+            </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Стало известно о состоянии пострадавших из-за взрыва на производственной станции в России">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/stalo-izvestno-o-sostoyanii-postradavshih-iz-za-vzryva-na-proizvodstvennoy-stantsii-v-rossii/" target="_blank" rel="noopener">Стало известно о состоянии пострадавших из-за взрыва на производственной станции в России</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513102241372/pic_0a86e662781f3a292d884045ac984ba2.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Россия поставила за рубеж рекордное количество чечевицы">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/rossiya-postavila-za-rubezh-rekordnoe-kolichestvo-chechevitsy/" target="_blank" rel="noopener">Россия поставила за рубеж рекордное количество чечевицы</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513101513713/pic_5c32fb6de647649291e6df8f114655f7.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Названа желающая задешево купить «Северный поток» страна">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/nazvana-zhelayuschaya-zadeshevo-kupit-severnyy-potok-strana/" target="_blank" rel="noopener">Названа желающая задешево купить «Северный поток» страна</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513101944428/pic_94fe6265f785617950f6294540327f17.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,lenta.ru" class="img-fluid rounded-start" alt="Захарова обратила внимание на важную деталь в заявлениях Каллас о России">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://lenta.ru/news/2026/05/13/zaharova-usomnilas-v/" target="_blank" rel="noopener">Захарова обратила внимание на важную деталь в заявлениях Каллас о России</a></h5>
-        <p class="card-text">|| https://icdn.lenta.ru/images/2026/05/13/10/20260513100739823/pic_69bda49f2cfed32c0262072fe23124f7.jpg</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">lenta.ru</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <h2 class="section-title">Habr overall</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Я урезал поток новостей на 2 недели: меньше читать оказалось недостаточно">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034520/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034520" target="_blank" rel="noopener">Я урезал поток новостей на 2 недели: меньше читать оказалось недостаточно</a></h5>
-        <p class="card-text">В какой-то момент я стал открывать ноутбук уже с ощущением забитой головы: до первой задачи успевал посмотреть Telegram, пару рабочих чатов, новости и три вкладки по рынку. К обеду я ловил себя на том...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Пересадка долголетия: модификация мышей геном голого землекопа">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ua-hosting/articles/1034076/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034076" target="_blank" rel="noopener">Пересадка долголетия: модификация мышей геном голого землекопа</a></h5>
-        <p class="card-text">Продолжительность жизни любого живого организма зависит от множества факторов, от окружающей среды до физиологических особенностей. Говоря о людях, экология, образ жизни, привычки, питание и многие др...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Как мы перестали терять игроков/пользователей при рестарте сервера: Thin WebSocket Gateway + Redis»">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034514/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034514" target="_blank" rel="noopener">Как мы перестали терять игроков/пользователей при рестарте сервера: Thin WebSocket Gateway + Redis»</a></h5>
-        <p class="card-text">Одной из задач, которую мне нужно было решить, являлась проблема обрыва соединений сокета от клиентов к серверу, при перезапуске сервера.Обычно, в играх и других неигровых приложениях, проихсодит пере...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Российский рынок речевой аналитики 2025: объём, доли игроков и темпы роста — посчитали по выручке 15 компаний">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034512/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034512" target="_blank" rel="noopener">Российский рынок речевой аналитики 2025: объём, доли игроков и темпы роста — посчитали по выручке 15 компаний</a></h5>
-        <p class="card-text">Мы посчитали российский рынок речевой аналитики не по логотипам, а по выручке из бухгалтерской отчётности.Получилось 12,5 млрд ₽ и +25,1% за год. 80% рынка забирают семь enterprise-вендоров: MWS AI, B...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Дубликат кода маркировки, или почему склад и магазин должны иметь возможность повторно напечатать дубль-код">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/cleverence/articles/1034510/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034510" target="_blank" rel="noopener">Дубликат кода маркировки, или почему склад и магазин должны иметь возможность повторно напечатать дубль-код</a></h5>
-        <p class="card-text">В этой статье подробно рассмотрим, почему на складе или в магазине может возникнуть необходимость повторной печати КМ и стоит ли давать продавцам и кладовщикам возможность использовать дубль-коды. Чит...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Управление программной инженерией в ERP-проектах на основе SWEBoK">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034406/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034406" target="_blank" rel="noopener">Управление программной инженерией в ERP-проектах на основе SWEBoK</a></h5>
-        <p class="card-text">Внедрение корпоративных информационных систем ведется по определенным правилам, есть три классические модели имплементации: каскадная, итерационная и спиралевидная. Также доступно множество прикладных...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Записки специалиста по математической оптимизации">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1033818/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1033818" target="_blank" rel="noopener">Записки специалиста по математической оптимизации</a></h5>
-        <p class="card-text">Что есть база в математической оптимизации и моделировании бизнес процессов? Целевая функция, ограничения, алгоритмы решения — безусловно, но есть ещё модели. Насмотренность, портфель типовых моделей ...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Про двуного-колёсных роботов">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/beget/articles/1033352/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1033352" target="_blank" rel="noopener">Про двуного-колёсных роботов</a></h5>
-        <p class="card-text">github.com/fuwei007/Navbot-EN01За прошедшие годы мы привыкли ко многим типам шагающих роботов, однако есть один любопытный тип, который до сих пор вызывает эмоции и, в первую очередь потому, что сама...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Рецензия на книгу «Разработка программного обеспечения. Практическое руководство для новичков в ИТ-команде»">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ssp-soft/articles/1032850/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1032850" target="_blank" rel="noopener">Рецензия на книгу «Разработка программного обеспечения. Практическое руководство для новичков в ИТ-команде»</a></h5>
-        <p class="card-text">Книга Андрея Литвинчука «Разработка программного обеспечения. Практическое руководство для новичков в ИТ-команде» (БХВ-Петербург, 2026) — структурированный и полезный разговор о том, с чем реально ста...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Опыт использования сабагентов в AI-агенте для IDE: что реально работает на больших задачах, а что нет">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/veai/articles/1034208/?utm_source=habrahabr&utm_medium=rss&utm_campaign=1034208" target="_blank" rel="noopener">Опыт использования сабагентов в AI-агенте для IDE: что реально работает на больших задачах, а что нет</a></h5>
-        <p class="card-text">Архитектура «оркестратор + сабагенты» на одном экране: ведущий агент держит план и раздаёт подзадачи изолированным сабагентам.Один AI-агент в чате – это удобно, пока задача помещается в контекст. Как...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <h2 class="section-title">Habr AI</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Российский рынок речевой аналитики 2025: объём, доли игроков и темпы роста — посчитали по выручке 15 компаний">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034512/?utm_campaign=1034512&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Российский рынок речевой аналитики 2025: объём, доли игроков и темпы роста — посчитали по выручке 15 компаний</a></h5>
-        <p class="card-text">Мы посчитали российский рынок речевой аналитики не по логотипам, а по выручке из бухгалтерской отчётности.Получилось 12,5 млрд ₽ и +25,1% за год. 80% рынка забирают семь enterprise-вендоров: MWS AI, B...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="DIY-стенд для инспекции печатных плат (профиль, камера, шаговые двигатели и немного инженерного упрямства)">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034422/?utm_campaign=1034422&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">DIY-стенд для инспекции печатных плат (профиль, камера, шаговые двигатели и немного инженерного упрямства)</a></h5>
-        <p class="card-text">Я, как и многие, залип в датасеты, метрики и нейросети - и в какой-то момент понял, что почти не думаю о главном, как вообще проходит процесс инспекции печатных плат.Чтобы закрыть вопрос реального про...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Российская экономика укрепится, когда ИИ заменит людей?! Мы опросили трёх экспертов">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/tsnis/articles/1034496/?utm_campaign=1034496&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Российская экономика укрепится, когда ИИ заменит людей?! Мы опросили трёх экспертов</a></h5>
-        <p class="card-text">Такого дефицита рабочей силы, как сейчас, ещё никогда не было в современной России. Об этом недавно заявила Эльвира Набиуллина.Нейросети называют заменой человеку. ИИ может выполнять функции сотрудник...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Топ-менеджеры советуются с ИИ по стратегическим вопросам. Что может пойти не так?">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/sberbank/articles/1034346/?utm_campaign=1034346&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Топ-менеджеры советуются с ИИ по стратегическим вопросам. Что может пойти не так?</a></h5>
-        <p class="card-text">Топ-менеджеры используют ИИ чаще других сотрудников (Gallup, 2025). Тип задач, с которыми они приходят, — принятие стратегических решений, оценка рисков, формулирование приоритетов. У этих задач есть ...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Как купить подписку Suno и начать создавать музыку в пару кликов">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/paybeam/articles/1034416/?utm_campaign=1034416&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Как купить подписку Suno и начать создавать музыку в пару кликов</a></h5>
-        <p class="card-text">Suno еще со своего выхода на рубеже 23-24 года стала одной из главных, если не главной, нейросетью для создания музыки. По сей день, ей пользуется огромное количество людей - по словам Форбс, сервис н...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Как оплатить подписку Cursor Pro из России в 2026 году">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/paybeam/articles/1034420/?utm_campaign=1034420&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Как оплатить подписку Cursor Pro из России в 2026 году</a></h5>
-        <p class="card-text">Когда Cursor уже плотно встроен в рабочий процесс, проблема оплаты становится не технической мелочью, а риском для сроков. Доступ может закончиться перед задачей, российская карта не пройти, а покупка...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Нейросеть Grok: большой гайд для россиян">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/paybeam/articles/1034428/?utm_campaign=1034428&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Нейросеть Grok: большой гайд для россиян</a></h5>
-        <p class="card-text">Мы все прекрасно знаем, про ChatGPT и DeepSeek, отдельные энтузиасты знают про Perplexity, Perplexity или Claude. Среди всех мастодонтов притаился Масковский или же Илоновский Grok, который мало кто в...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Пузырь ИИ лопается: почему 95% пилотов не доходят до продакшна">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/alpinadigital/articles/1034398/?utm_campaign=1034398&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Пузырь ИИ лопается: почему 95% пилотов не доходят до продакшна</a></h5>
-        <p class="card-text">Жемал Хамидун · Head of AI Alpina Digital, CPO AlpinaGPT95% корпоративных ИИ-пилотов не доходят до продакшна. Почему компании теряют бюджеты на AI-трансформации, как данные и процессы ломают внедрение...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Природа сознания, Большой Взрыв и обратная сборка реальности">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1034334/?utm_campaign=1034334&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Природа сознания, Большой Взрыв и обратная сборка реальности</a></h5>
-        <p class="card-text">Я уже писал о своей эвристической модели OS Humanium, сегодня хочу показать, какая интересная гипотеза рождается из неё по поводу природы сознания.Почему вообще стоило её описывать, а вам есть смысл п...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Как я Zabbix с LLM дружил в свободное время. Архитектурный обзор взаимодействия с нейросетью. Часть 2 «Выбор модели»">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1033798/?utm_campaign=1033798&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Как я Zabbix с LLM дружил в свободное время. Архитектурный обзор взаимодействия с нейросетью. Часть 2 «Выбор модели»</a></h5>
-        <p class="card-text">Это вторая статья из цикла о том, как я пытался сделать алерты Zabbix в домашней лаборатории чуть умнее, прикрутив к ним локальную LLM и не получить на выходе архитектурного монстра Франкенштейна.В пе...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <h2 class="section-title">Habr Space</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Россия выбыла из лунной гонки. Что планируют США и Китай: база, ядерный реактор, спутники слежения">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ruvds/articles/1032674/?utm_campaign=1032674&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Россия выбыла из лунной гонки. Что планируют США и Китай: база, ядерный реактор, спутники слежения</a></h5>
-        <p class="card-text">Первая с 1972 года пилотируемая миссия к Луне «Артемида-2» успешно завершилась 10 апреля 2026 года. Корабль «Орион» с астронавтами облетел вокруг Луны и вернулся на Землю. Давно человечество не объеди...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="«Урал-Драйвер»: электромагнитная первая ступень">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1033192/?utm_campaign=1033192&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">«Урал-Драйвер»: электромагнитная первая ступень</a></h5>
-        <p class="card-text">Концепт-документ подземной электромагнитной маглев-катапульты в скалах Приполярного Урала. Гибридная архитектура: разгон до 5 км/с в тоннеле 40 км при 30g + добор скайхуком и ракетной ступенью до орби...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Связь на гравитационных волнах">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1030402/?utm_campaign=1030402&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Связь на гравитационных волнах</a></h5>
-        <p class="card-text">Представьте задачу: передать сообщение на противоположную сторону Земли с идеальным пингом напрямую сквозь ядро, не используя спутники или ретрансляторы. Радиоволны сквозь планету не пройдут. Нейтрино...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Простая почти правдоподобная модель траектории полета космического корабля ORION в рамках миссии ARTEMIS-II">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1028096/?utm_campaign=1028096&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Простая почти правдоподобная модель траектории полета космического корабля ORION в рамках миссии ARTEMIS-II</a></h5>
-        <p class="card-text">Завершившийся недавно полет пилотируемого космического корабля ORION, который совершил облёт Луны и успешно вернулся на Землю, привлёк к себе огромное внимание всего человечества и вызвал гигантское к...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Как фотографируют в космосе">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ruvds/articles/1026796/?utm_campaign=1026796&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Как фотографируют в космосе</a></h5>
-        <p class="card-text">На днях завершилась одна из самых важных в истории изучения космоса, миссия «Артемида-2». Этот полёт был важен для того, чтобы подготовиться к полёту на Луну в 2028 году. Но есть ещё одна важная причи...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Кислород из лунного грунта и новая космическая гонка: кто собрался строить инфраструктуру на Луне">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ru_mts/articles/1027790/?utm_campaign=1027790&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Кислород из лунного грунта и новая космическая гонка: кто собрался строить инфраструктуру на Луне</a></h5>
-        <p class="card-text">Луна покрыта реголитом — слоем пыли, камней и песка от двух метров до десятков. Так вот, из реголита, кажется, научились добывать кислород. Blue Origin заявила о разработке реактора, переплавляющего л...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Пекло">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1027914/?utm_campaign=1027914&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Пекло</a></h5>
-        <p class="card-text">В 2007 году на экраны вышел фантастический фильм Дэнни Бойла «Пекло» («Sunshine») о пилотируемом полёте к Солнцу корабля «Икар II», защищенного от испепеляющего жара исполинским золотым щитом. Несмотр...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Видеть невидимое: как создаётся независимость Поднебесной в космосе">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1027322/?utm_campaign=1027322&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Видеть невидимое: как создаётся независимость Поднебесной в космосе</a></h5>
-        <p class="card-text">24 апреля Китай отмечает свой День космонавтики, и в этом году он проходит под знаком 70-летия национальной космической программы. Но пока отложим в сторону глянцевые отчёты о новых запусках, белых ра...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="Моделируй просто! Симулятор космического полёта – «42»">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/articles/1026474/?utm_campaign=1026474&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">Моделируй просто! Симулятор космического полёта – «42»</a></h5>
-        <p class="card-text">У каждого специалиста в своей области есть профильное ПО. Даже для разработки ПО есть соответствующее ПО. И зачастую большинство специалистов не заботит «открытость» такого ПО. Более того, среди специ...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,habr.com" class="img-fluid rounded-start" alt="«Управляя Солнцем»: умопомрачительная физика и смелые задачи звёздных машин">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://habr.com/ru/companies/ruvds/articles/1021582/?utm_campaign=1021582&utm_source=habrahabr&utm_medium=rss" target="_blank" rel="noopener">«Управляя Солнцем»: умопомрачительная физика и смелые задачи звёздных машин</a></h5>
-        <p class="card-text">Представьте себе, что Солнце стало кораблём. Нет, не как метафора для света или тепла, а буквально — судном, буксиром, способным тянуть за собой всю Солнечную систему по галактике. Это не сюжет научно...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">habr.com</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <h2 class="section-title">AI agents (arXiv cs.AI)</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08200" target="_blank" rel="noopener">Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits</a></h5>
-        <p class="card-text">arXiv:2605.08200v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08220" target="_blank" rel="noopener">Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction</a></h5>
-        <p class="card-text">arXiv:2605.08220v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08354" target="_blank" rel="noopener">Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria</a></h5>
-        <p class="card-text">arXiv:2605.08354v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="Embeddings for Preferences, Not Semantics">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08360" target="_blank" rel="noopener">Embeddings for Preferences, Not Semantics</a></h5>
-        <p class="card-text">arXiv:2605.08360v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="On Distinguishing Capability Elicitation from Capability Creation in Post-Training: A Free-Energy Perspective">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08368" target="_blank" rel="noopener">On Distinguishing Capability Elicitation from Capability Creation in Post-Training: A Free-Energy Perspective</a></h5>
-        <p class="card-text">arXiv:2605.08368v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="MemQ: Integrating Q-Learning into Self-Evolving Memory Agents over Provenance DAGs">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08374" target="_blank" rel="noopener">MemQ: Integrating Q-Learning into Self-Evolving Memory Agents over Provenance DAGs</a></h5>
-        <p class="card-text">arXiv:2605.08374v2 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="SkillLens: Adaptive Multi-Granularity Skill Reuse for Cost-Efficient LLM Agents">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08386" target="_blank" rel="noopener">SkillLens: Adaptive Multi-Granularity Skill Reuse for Cost-Efficient LLM Agents</a></h5>
-        <p class="card-text">arXiv:2605.08386v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="PLACO: A Multi-Stage Framework for Cost-Effective Performance in Human-AI Teams">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08388" target="_blank" rel="noopener">PLACO: A Multi-Stage Framework for Cost-Effective Performance in Human-AI Teams</a></h5>
-        <p class="card-text">arXiv:2605.08388v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="CoCoDA: Co-evolving Compositional DAG for Tool-Augmented Agents">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08399" target="_blank" rel="noopener">CoCoDA: Co-evolving Compositional DAG for Tool-Augmented Agents</a></h5>
-        <p class="card-text">arXiv:2605.08399v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,arxiv.org" class="img-fluid rounded-start" alt="Belief or Circuitry? Causal Evidence for In-Context Graph Learning">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://arxiv.org/abs/2605.08405" target="_blank" rel="noopener">Belief or Circuitry? Causal Evidence for In-Context Graph Learning</a></h5>
-        <p class="card-text">arXiv:2605.08405v1 Announce Type: new</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">arxiv.org</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-        <h2 class="section-title">Space (NASA Breaking News)</h2>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,science.nasa.gov" class="img-fluid rounded-start" alt="America’s Emerald Isle">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://science.nasa.gov/earth/earth-observatory/americas-emerald-isle/" target="_blank" rel="noopener">America’s Emerald Isle</a></h5>
-        <p class="card-text">Beaver Island is one in a string of verdant and scenic jewels in a northern Lake Michigan archipelago.</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">science.nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,nasa.gov" class="img-fluid rounded-start" alt="NASA Langley Engineer Attends FAA Training">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://www.nasa.gov/general/nasa-langley-engineer-attends-faa-training/" target="_blank" rel="noopener">NASA Langley Engineer Attends FAA Training</a></h5>
-        <p class="card-text">At a busy airport, every aircraft in the area shares just a handful of radio frequencies. Spectrum and time are constrained and if multiple people speak at once, both messages can get lost. Communicat...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,nasa.gov" class="img-fluid rounded-start" alt="Perseverance Stuns in New Selfie">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://www.nasa.gov/image-article/perseverance-stuns-in-new-selfie/" target="_blank" rel="noopener">Perseverance Stuns in New Selfie</a></h5>
-        <p class="card-text">NASA’s Perseverance rover recently took a self-portrait against a sweeping backdrop of ancient Martian terrain at a location the science team calls “Lac de Charmes.” Assembled from 61 individual image...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,nasa.gov" class="img-fluid rounded-start" alt="NASA’s Perseverance Rover Snaps Selfie in Mars’ Western Frontier">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://www.nasa.gov/missions/mars-2020-perseverance/perseverance-rover/nasas-perseverance-rover-snaps-selfie-in-mars-western-frontier/" target="_blank" rel="noopener">NASA’s Perseverance Rover Snaps Selfie in Mars’ Western Frontier</a></h5>
-        <p class="card-text">NASA’s Perseverance Mars rover recently took a self-portrait against a sweeping backdrop of ancient Martian terrain at a location the science team calls “Lac de Charmes.” Assembled from 61 individual ...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,science.nasa.gov" class="img-fluid rounded-start" alt="NASA’s Perseverance Captures Panorama at ‘Arbot’">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://science.nasa.gov/photojournal/nasas-perseverance-captures-panorama-at-arbot/" target="_blank" rel="noopener">NASA’s Perseverance Captures Panorama at ‘Arbot’</a></h5>
-        <p class="card-text">Description NASA’s Perseverance Mars rover used its Mastcam-Z camera to capture this panorama of an area nicknamed “Arbot” on April 5, 2026, the 1,882nd Martian day, or sol, of the mission, during the...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">science.nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,science.nasa.gov" class="img-fluid rounded-start" alt="NASA’s Perseverance Rover Snaps Westernmost Selfie">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://science.nasa.gov/photojournal/nasas-perseverance-rover-snaps-westernmost-selfie/" target="_blank" rel="noopener">NASA’s Perseverance Rover Snaps Westernmost Selfie</a></h5>
-        <p class="card-text">Description NASA’s Perseverance Mars rover took this selfie on March 11, 2026, the 1,797th Martian day, or sol, of the mission, during the rover’s deepest push west beyond Jezero Crater. Assembled fro...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">science.nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,nasa.gov" class="img-fluid rounded-start" alt="Hello Universe: NASA’s Next-Gen Space Processor Undergoes Testing">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://www.nasa.gov/technology/hello-universe-nasas-next-gen-space-processor-undergoes-testing/" target="_blank" rel="noopener">Hello Universe: NASA’s Next-Gen Space Processor Undergoes Testing</a></h5>
-        <p class="card-text">NASA’s High Performance Spaceflight Computing project aims to dramatically improve the computing power of spacecraft. Missions need processors that can withstand the harsh space environment, so they u...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,nasa.gov" class="img-fluid rounded-start" alt="I Am Artemis: Kathleen Harmon">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://www.nasa.gov/missions/artemis/i-am-artemis/i-am-artemis-kathleen-harmon/" target="_blank" rel="noopener">I Am Artemis: Kathleen Harmon</a></h5>
-        <p class="card-text">Listen to this audio excerpt from Kathleen Harmon, the Artemis II Mission Interface Manager for NASA’s Deep Space Network: Captivated by Apollo launches on her television as a child, Kathleen Harmon n...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,science.nasa.gov" class="img-fluid rounded-start" alt="Australia’s Cloudy Beauty">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://science.nasa.gov/earth/earth-observatory/australias-cloudy-beauty/" target="_blank" rel="noopener">Australia’s Cloudy Beauty</a></h5>
-        <p class="card-text">Valley fog gathered in the Victorian Alps while an arch-shaped cloud drifted across Port Phillip Bay.</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">science.nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="card mb-4 shadow-sm">
-  <div class="row g-0">
-    <div class="col-md-4">
-      <img src="https://source.unsplash.com/random/400x250/?news,science.nasa.gov" class="img-fluid rounded-start" alt="Curiosity Blog, Sols 4886-4892: Ingenuity and Perseverance, Curiosity Style">
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h5 class="card-title"><a href="https://science.nasa.gov/blog/curiosity-blog-sols-4886-4892-ingenuity-and-perseverance-curiosity-style/" target="_blank" rel="noopener">Curiosity Blog, Sols 4886-4892: Ingenuity and Perseverance, Curiosity Style</a></h5>
-        <p class="card-text">Written by Michelle Minitti, MAHLI Deputy Principal Investigator Earth planning date: Friday, May 8, 2026 While we know the monikers Ingenuity and Perseverance are attached to our sister helicopter an...</p>
-        <div class="d-flex justify-content-between align-items-center">
-          <small class="text-muted">science.nasa.gov</small>
-          <small class="text-muted">13 May 2026</small>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-      </div>
-      <div class="col-lg-4">
-        <div class="sticky-top bg-light p-3 rounded">
-          <h5>О проекте</h5>
-          <p class="small">Автоматически собранный дайджест из выбранных источников. Обновляется каждые 3 дня.</p>
-          <hr>
-          <h6>Источники</h6>
-          <ul class="list-unstyled small">
-            <li>arxiv.org</li>
-            <li>habr.com</li>
-            <li>lenta.ru</li>
-            <li>nasa.gov</li>
-            <li>science.nasa.gov</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <footer class="footer">
-    <div class="container">
-      <p>Принцип чтения: для каждой темы минимум 2 источника с разных сторон.</p>
-      <p><a href="#" class="text-decoration-none">Наверх</a></p>
-    </div>
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <footer class="footer">
+            <p>Ежедневная газета · сгенерировано 13.05.2026</p>
+            <p>Источники: РИА, RT, Lenta, Взгляд, Коммерсантъ, Interfax, BBC, Euronews, arXiv, Habr, NASA и другие</p>
+            <p style="margin-top:8px;font-size:11px;">
+                <a href="#" onclick="localStorage.clear();location.reload()">Сбросить лайки</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        // Like system — сохраняем лайки в localStorage
+        (function() {
+            const STORAGE_KEY = 'vn_likes';
+            let likes = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            
+            function saveLikes() {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(likes));
+            }
+            
+            function updateCount(key, btn) {
+                const count = Object.values(likes).filter(v => v === key).length;
+                const counter = btn.parentElement.querySelector('.like-count') || (() => {
+                    const el = document.createElement('span');
+                    el.className = 'like-count';
+                    btn.parentElement.insertBefore(el, btn.nextSibling);
+                    return el;
+                })();
+                counter.textContent = count > 0 ? count + ' ❤️' : '';
+            }
+            
+            document.querySelectorAll('.like-btn').forEach(btn => {
+                const key = btn.dataset.key;
+                if (likes[key]) btn.classList.add('liked');
+                
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const k = this.dataset.key;
+                    if (likes[k]) {
+                        delete likes[k];
+                        this.classList.remove('liked');
+                    } else {
+                        likes[k] = 'liked';
+                        this.classList.add('liked');
+                    }
+                    saveLikes();
+                    updateCount(k, this);
+                });
+                
+                updateCount(key, btn);
+            });
+        })();
+    </script>
 </body>
 </html>
