@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Капитан — Морское приключение</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Title Screen -->
+        <div id="title-screen" class="screen active">
+            <div class="title-bg">
+                <div class="waves"></div>
+                <div class="fog"></div>
+            </div>
+            <div class="title-content">
+                <div class="compass-icon">🧭</div>
+                <h1>AI Капитан</h1>
+                <p class="subtitle">Морское интерактивное приключение</p>
+                <button class="btn-primary" onclick="startGame()">⛵ Начать плавание</button>
+                <button class="btn-secondary" onclick="loadGame()" id="load-btn" style="display:none">📂 Загрузить</button>
+                <p class="version">v0.1 · История создаётся AI</p>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <div class="game-bg">
+                <canvas id="ocean-canvas"></canvas>
+            </div>
+            <div id="game-ui">
+                <div id="status-bar">
+                    <div class="status-item"><span>⛵</span> <span id="boat-status">100%</span></div>
+                    <div class="status-item"><span>🍞</span> <span id="supplies-status">100%</span></div>
+                    <div class="status-item"><span>💧</span> <span id="water-status">100%</span></div>
+                    <div class="status-item"><span>🌊</span> <span id="weather-status">Штиль</span></div>
+                </div>
+                <div id="story-container">
+                    <div id="character-name">AI Капитан</div>
+                    <div id="story-text"></div>
+                </div>
+                <div id="choices-container"></div>
+                <div id="action-bar">
+                    <button class="btn-icon" onclick="saveGame()" title="Сохранить">💾</button>
+                    <button class="btn-icon" onclick="showInventory()" title="Инвентарь">🎒</button>
+                    <button class="btn-icon" onclick="restartConfirm()" title="Заново">🔄</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inventory Modal -->
+        <div id="inventory-modal" class="modal" style="display:none">
+            <div class="modal-content">
+                <h2>🎒 Инвентарь</h2>
+                <div id="inventory-list"></div>
+                <button class="btn-secondary" onclick="closeInventory()">Закрыть</button>
+            </div>
+        </div>
+
+        <!-- Save/Load Modal -->
+        <div id="save-modal" class="modal" style="display:none">
+            <div class="modal-content">
+                <h2>💾 Сохранения</h2>
+                <div id="save-slots"></div>
+                <button class="btn-secondary" onclick="closeSaveModal()">Закрыть</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="scenes.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
