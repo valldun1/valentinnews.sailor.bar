@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Капитан — Flash Edition</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Заглушка при загрузке — не убирать */
+    #loading-screen {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: #060812; z-index: 99999;
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 20px; transition: opacity 0.5s;
+      font-family: 'Inter', sans-serif;
+    }
+    #loading-screen .loader {
+      width: 60px; height: 60px; border: 3px solid rgba(245,166,35,0.1);
+      border-top-color: #f5a623; border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #loading-screen .lt { font-size: 14px; color: rgba(255,255,255,0.3); letter-spacing: 3px; }
+  </style>
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loading-screen">
+    <div class="loader"></div>
+    <div class="lt">ЗАГРУЗКА</div>
+  </div>
+
+  <!-- Particle Canvas -->
+  <canvas id="fx-canvas"></canvas>
+
+  <!-- Transition Overlay -->
+  <div id="transition-overlay"></div>
+
+  <!-- Toast -->
+  <div id="toast"></div>
+
+  <!-- ===== TITLE SCREEN ===== -->
+  <div id="title-screen" class="screen active">
+    <div class="title-compass">🧭</div>
+    <h1>AI Капитан</h1>
+    <p class="subtitle">✦ Flash Edition ✦</p>
+    <p class="subtitle" style="font-size:12px;letter-spacing:2px;margin-top:-20px;color:rgba(255,255,255,0.15);">Интерактивное приключение с частицами и анимацией</p>
+    <div class="title-buttons">
+      <button class="btn-primary" id="btn-start">⛵ Начать плавание</button>
+      <button class="btn-secondary" id="btn-load" style="display:none">📂 Загрузить</button>
+    </div>
+    <p class="version">v0.2 Flash Edition</p>
+  </div>
+
+  <!-- ===== GAME SCREEN ===== -->
+  <div id="game-screen" class="screen">
+    <div id="game-ui">
+      <!-- Status Bar -->
+      <div id="status-bar">
+        <div class="stat-group">
+          <span class="stat-val good" id="stat-boat">⛵ 100%</span>
+          <span class="stat-val good" id="stat-food">🍞 100%</span>
+          <span class="stat-val good" id="stat-water">💧 100%</span>
+        </div>
+        <div class="stat-meta">
+          <span id="stat-day">📅 День 1</span>
+          <span id="stat-loc">📍 Порт</span>
+          <span id="stat-weather">🌊 Штиль</span>
+        </div>
+      </div>
+
+      <!-- Character Portrait -->
+      <div id="character-portrait"></div>
+
+      <!-- Story -->
+      <div id="story-container">
+        <div id="story-text"></div>
+      </div>
+
+      <!-- Choices -->
+      <div id="choices-container">
+        <div id="choices"></div>
+      </div>
+
+      <!-- Action Bar -->
+      <div id="action-bar">
+        <button class="btn-icon" id="btn-inv" title="Инвентарь">🎒</button>
+        <button class="btn-icon" id="btn-save" title="Сохранения">💾</button>
+        <button class="btn-icon" id="btn-restart" title="Заново">🔄</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== INVENTORY MODAL ===== -->
+  <div class="modal" id="inv-modal">
+    <div class="modal-content">
+      <h2>🎒 Инвентарь</h2>
+      <div id="inv-list"></div>
+      <br>
+      <button class="btn-secondary" id="btn-close-inv" style="width:100%">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- ===== SAVE MODAL ===== -->
+  <div class="modal" id="save-modal">
+    <div class="modal-content">
+      <h2>💾 Сохранения</h2>
+      <div id="save-slots"></div>
+      <br>
+      <button class="btn-secondary" id="btn-close-save" style="width:100%">Закрыть</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="scenes.js"></script>
+  <script src="game.js"></script>
+  <script>
+    // Hide loading screen
+    window.addEventListener('load', () => {
+      const ls = document.getElementById('loading-screen');
+      if (ls) { ls.style.opacity = '0'; setTimeout(() => ls.style.display = 'none', 500); }
+    });
+    // Fallback: hide after 3s regardless
+    setTimeout(() => {
+      const ls = document.getElementById('loading-screen');
+      if (ls && ls.style.display !== 'none') { ls.style.display = 'none'; }
+    }, 3000);
+  </script>
+</body>
+</html>
