@@ -18,8 +18,8 @@
                 <div class="compass-icon">🧭</div>
                 <h1>AI Капитан</h1>
                 <p class="subtitle">Морское интерактивное приключение</p>
-                <button class="btn-primary" onclick="startGame()">⛵ Начать плавание</button>
-                <button class="btn-secondary" onclick="loadGame()" id="load-btn" style="display:none">📂 Загрузить</button>
+                <button class="btn-primary" id="btn-start">⛵ Начать плавание</button>
+                <button class="btn-secondary" id="btn-load" style="display:none">📂 Загрузить</button>
                 <p class="version">v0.1 · История создаётся AI</p>
             </div>
         </div>
@@ -42,9 +42,9 @@
                 </div>
                 <div id="choices-container"></div>
                 <div id="action-bar">
-                    <button class="btn-icon" onclick="saveGame()" title="Сохранить">💾</button>
-                    <button class="btn-icon" onclick="showInventory()" title="Инвентарь">🎒</button>
-                    <button class="btn-icon" onclick="restartConfirm()" title="Заново">🔄</button>
+                    <button class="btn-icon" id="btn-save" title="Сохранить">💾</button>
+                    <button class="btn-icon" id="btn-inventory" title="Инвентарь">🎒</button>
+                    <button class="btn-icon" id="btn-restart" title="Заново">🔄</button>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
             <div class="modal-content">
                 <h2>🎒 Инвентарь</h2>
                 <div id="inventory-list"></div>
-                <button class="btn-secondary" onclick="closeInventory()">Закрыть</button>
+                <button class="btn-secondary" id="btn-close-inv">Закрыть</button>
             </div>
         </div>
 
@@ -63,73 +63,12 @@
             <div class="modal-content">
                 <h2>💾 Сохранения</h2>
                 <div id="save-slots"></div>
-                <button class="btn-secondary" onclick="closeSaveModal()">Закрыть</button>
+                <button class="btn-secondary" id="btn-close-save">Закрыть</button>
             </div>
         </div>
     </div>
 
     <script src="scenes.js"></script>
     <script src="game.js"></script>
-    <script>
-    // Глобальные функции для UI
-    function startGame() {
-        document.getElementById('title-screen').style.display = 'none';
-        document.getElementById('game-screen').style.display = 'block';
-        Game.start();
-    }
-    function loadGame() {
-        const slots = document.getElementById('save-slots');
-        slots.innerHTML = '';
-        for (let i = 1; i <= 3; i++) {
-            const data = Game.loadFromSlot(i);
-            const div = document.createElement('div');
-            div.className = 'save-slot';
-            div.innerHTML = `<strong>Слот ${i}</strong>${data ? ' — ' + new Date(data.date).toLocaleString() : ' (пусто)'}`;
-            div.onclick = () => {
-                if (data) {
-                    Object.assign(GameState, data.state);
-                    Game.showScene(data.scene);
-                    closeSaveModal();
-                }
-            };
-            slots.appendChild(div);
-        }
-        document.getElementById('save-modal').style.display = 'flex';
-    }
-    function saveGame() {
-        const slots = document.getElementById('save-slots');
-        slots.innerHTML = '';
-        for (let i = 1; i <= 3; i++) {
-            const data = Game.loadFromSlot(i);
-            const div = document.createElement('div');
-            div.className = 'save-slot';
-            div.innerHTML = `<strong>Слот ${i}</strong>${data ? ' — ' + new Date(data.date).toLocaleString() : ' (пусто)'}`;
-            div.onclick = () => {
-                Game.saveToSlot(i);
-                closeSaveModal();
-            };
-            slots.appendChild(div);
-        }
-        document.getElementById('save-modal').style.display = 'flex';
-    }
-    function showInventory() {
-        const list = document.getElementById('inventory-list');
-        list.innerHTML = GameState.inventory.length
-            ? '<ul>' + GameState.inventory.map(i => '<li>' + i + '</li>').join('') + '</ul>'
-            : '<p>Инвентарь пуст</p>';
-        document.getElementById('inventory-modal').style.display = 'flex';
-    }
-    function closeInventory() { document.getElementById('inventory-modal').style.display = 'none'; }
-    function closeSaveModal() { document.getElementById('save-modal').style.display = 'none'; }
-    function restartConfirm() {
-        if (confirm('Начать новое плавание? Все несохранённые данные будут потеряны.')) {
-            document.getElementById('game-screen').style.display = 'none';
-            document.getElementById('title-screen').style.display = 'flex';
-            GameState.boatHull = 100; GameState.supplies = 100; GameState.water = 100;
-            GameState.crewMorale = 70; GameState.day = 1; GameState.inventory = [];
-            GameState.flags = {}; GameState.history = []; GameState.stats.choicesMade = 0;
-        }
-    }
-    </script>
 </body>
 </html>

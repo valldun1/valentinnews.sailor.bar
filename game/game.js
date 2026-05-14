@@ -223,12 +223,6 @@ const Game = {
     Typewriter.start(textEl, scene.text, 25, () => {
       this.showChoices(scene.choices || []);
     });
-
-    // Click to skip / advance
-    textEl.onclick = () => {
-      if (Typewriter.skipRequested) return;
-      Typewriter.skip();
-    };
   },
 
   showChoices(choices) {
@@ -343,4 +337,110 @@ const Game = {
       GameState.location = loc;
     },
   },
+
+  // === UI INIT ===
+  init() {
+    document.addEventListener('DOMContentLoaded', () => {
+      this.bindUI();
+    });
+    // Already loaded
+    if (document.readyState !== 'loading') {
+      this.bindUI();
+    }
+  },
+
+  bindUI() {
+    const $ = id => document.getElementById(id);
+
+    // Title screen
+    $('btn-start').addEventListener('click', () => this.startGame());
+    $('btn-load').addEventListener('click', () => this.loadGame());
+
+    // Action bar
+    $('btn-save').addEventListener('click', () => this.saveGame());
+    $('btn-inventory').addEventListener('click', () => this.showInventory());
+    $('btn-restart').addEventListener('click', () => this.restartConfirm());
+
+    // Modals
+    $('btn-close-inv').addEventListener('click', () => this.closeInventory());
+    $('btn-close-save').addEventListener('click', () => this.closeSaveModal());
+
+    // Story text click to skip typewriter
+    $('story-text').addEventListener('click', () => {
+      if (Typewriter.skipRequested) return;
+      Typewriter.skip();
+    });
+  },
+
+  startGame() {
+    document.getElementById('title-screen').style.display = 'none';
+    document.getElementById('game-screen').style.display = 'block';
+    this.start();
+  },
+
+  loadGame() {
+    const slots = document.getElementById('save-slots');
+    slots.innerHTML = '';
+    for (let i = 1; i <= 3; i++) {
+      const data = this.loadFromSlot(i);
+      const div = document.createElement('div');
+      div.className = 'save-slot';
+      div.innerHTML = `<strong>Слот ${i}</strong>${data ? ' — ' + new Date(data.date).toLocaleString() : ' (пусто)'}`;
+      div.onclick = () => {
+        if (data) {
+          Object.assign(GameState, data.state);
+          this.showScene(data.scene);
+          this.closeSaveModal();
+        }
+      };
+      slots.appendChild(div);
+    }
+    document.getElementById('save-modal').style.display = 'flex';
+  },
+
+  saveGame() {
+    const slots = document.getElementById('save-slots');
+    slots.innerHTML = '';
+    for (let i = 1; i <= 3; i++) {
+      const data = this.loadFromSlot(i);
+      const div = document.createElement('div');
+      div.className = 'save-slot';
+      div.innerHTML = `<strong>Слот ${i}</strong>${data ? ' — ' + new Date(data.date).toLocaleString() : ' (пусто)'}`;
+      div.onclick = () => {
+        this.saveToSlot(i);
+        this.closeSaveModal();
+      };
+      slots.appendChild(div);
+    }
+    document.getElementById('save-modal').style.display = 'flex';
+  },
+
+  showInventory() {
+    const list = document.getElementById('inventory-list');
+    list.innerHTML = GameState.inventory.length
+      ? '<ul>' + GameState.inventory.map(i => '<li>' + i + '</li>').join('') + '</ul>'
+      : '<p>Инвентарь пуст</p>';
+    document.getElementById('inventory-modal').style.display = 'flex';
+  },
+
+  closeInventory() {
+    document.getElementById('inventory-modal').style.display = 'none';
+  },
+
+  closeSaveModal() {
+    document.getElementById('save-modal').style.display = 'none';
+  },
+
+  restartConfirm() {
+    if (confirm('Начать новое плавание? Все несохранённые данные будут потеряны.')) {
+      document.getElementById('game-screen').style.display = 'none';
+      document.getElementById('title-screen').style.display = 'flex';
+      GameState.boatHull = 100; GameState.supplies = 100; GameState.water = 100;
+      GameState.crewMorale = 70; GameState.day = 1; GameState.inventory = [];
+      GameState.flags = {}; GameState.history = []; GameState.stats.choicesMade = 0;
+    }
+  },
 };
+
+// Auto-init
+Game.init();
