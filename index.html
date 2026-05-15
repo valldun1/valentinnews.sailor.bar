@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ежедневная газета — 13.05.2026</title>
+    <title>Ежедневная газета — 15.05.2026</title>
     <meta name="robots" content="noindex, nofollow">
     <style>
         :root {
@@ -128,6 +128,12 @@
         .currency-item.up .currency-change { color: #2ecc71; }
         .currency-item.down .currency-change { color: #e74c3c; }
         
+        /* Market bar spacing */
+        .market-bar {
+            margin-top: 8px;
+        }
+        
+        
         /* Category Section */
         .category-section {
             margin-bottom: 28px;
@@ -192,6 +198,17 @@
             object-fit: cover;
         }
         
+        .article-curated-image.article-noimage {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .noimage-icon {
+            font-size: 32px;
+            opacity: 0.5;
+        }
+        
         .article-curated-content {
             flex: 1;
             min-width: 0;
@@ -211,6 +228,13 @@
         
         .article-curated-title a:hover {
             color: var(--accent);
+        }
+        
+        .article-title-original {
+            font-size: 12px;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 2px;
         }
         
         .article-meta {
@@ -427,7 +451,7 @@
                 <div class="site-title">
                     📰 Ежедневная газета <small>· valentinnews</small>
                 </div>
-                <div class="date-badge">📅 13.05.2026</div>
+                <div class="date-badge">📅 15.05.2026</div>
             </div>
             
             <div class="currency-bar">
@@ -435,23 +459,38 @@
                 
             <div class="currency-item down">
                 <span class="currency-code">USD</span>
-                <span class="currency-value">73.34</span>
-                <span class="currency-change">↓0.45</span>
+                <span class="currency-value">73.14</span>
+                <span class="currency-change">↓0.20</span>
             </div>
-            <div class="currency-item down">
+            <div class="currency-item up">
                 <span class="currency-code">EUR</span>
-                <span class="currency-value">85.90</span>
-                <span class="currency-change">↓1.48</span>
+                <span class="currency-value">86.29</span>
+                <span class="currency-change">↑0.39</span>
             </div>
             <div class="currency-item down">
                 <span class="currency-code">CNY</span>
                 <span class="currency-value">10.79</span>
-                <span class="currency-change">↓0.06</span>
+                <span class="currency-change">↓0.01</span>
             </div>
             <div class="currency-item down">
                 <span class="currency-code">GBP</span>
-                <span class="currency-value">99.20</span>
-                <span class="currency-change">↓1.44</span>
+                <span class="currency-value">98.84</span>
+                <span class="currency-change">↓0.36</span>
+            </div>
+            </div>
+            
+            <div class="currency-bar market-bar">
+                <span class="currency-label">📊 Рынки</span>
+                
+            <div class="currency-item up">
+                <span class="currency-code">🛢️</span>
+                <span class="currency-value">$107.74</span>
+                <span class="currency-change">↑$3.53</span>
+            </div>
+            <div class="currency-item up">
+                <span class="currency-code">📈</span>
+                <span class="currency-value">$401.07</span>
+                <span class="currency-change">↑$3.08</span>
             </div>
             </div>
         </div>
@@ -467,20 +506,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527688,#000)"><img src="https://cdnn21.img.ria.ru/images/07e8/04/06/1938272634_170:635:1320:1282_650x0_80_0_0_4a2e04249f616635fa34a2c68fb13187.jpg" alt="Мужчина получил ранения при атаке ВСУ в Курской области" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#1a527633,#1a527611)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://ria.ru/20260513/ataka-2092294188.html" target="_blank" rel="noopener">Мужчина получил ранения при атаке ВСУ в Курской области</a>
+                            <a href="https://ria.ru/20260515/hezbolla-2092594363.html" target="_blank" rel="noopener">&quot;Хезболла&quot; заявила о 13 боевых операциях против израильской армии за сутки</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Боевое крыло «Хезболла» заявило о 13 боевых операциях против израильской армии за сутки. Это произошло в ответ на действия Израиля.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="9f7e437a" title="Нравится">🤍</button>
-                            <a href="https://ria.ru/20260513/ataka-2092294188.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="4a351856" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260515/hezbolla-2092594363.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -488,20 +527,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/18b9ac17761506bb/600/400" alt="&quot;Суд и приговор&quot;. Экс-премьер Украины выступил с предупреждением Зеленскому" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#1a527633,#1a527611)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://ria.ru/20260513/ukraina-2092293982.html" target="_blank" rel="noopener">&quot;Суд и приговор&quot;. Экс-премьер Украины выступил с предупреждением Зеленскому</a>
+                            <a href="https://ria.ru/20260515/konfety-2092593919.html" target="_blank" rel="noopener">Кондитер рассказал, какой ингредиент в конфетах опасен для здоровья</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Конфетный ингредиент, который может быть опасен для здоровья, был назван кондитером. Этот ингредиент может нанести вред здоровью человека.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="3e5a9fb2" title="Нравится">🤍</button>
-                            <a href="https://ria.ru/20260513/ukraina-2092293982.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="b276f82d" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260515/konfety-2092593919.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -509,20 +548,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527688,#000)"><img src="https://cdnn21.img.ria.ru/images/07ea/05/0d/2092294167_0:142:3096:1884_650x0_80_0_0_1a9205fda5285cf1a0a562cae4513b5f.jpg" alt="Шойгу примет участие во встрече секретарей совбезов членов ШОС" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#1a527633,#1a527611)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://ria.ru/20260513/shoygu-2092293847.html" target="_blank" rel="noopener">Шойгу примет участие во встрече секретарей совбезов членов ШОС</a>
+                            <a href="https://ria.ru/20260515/mbappe-2092593685.html" target="_blank" rel="noopener">Мбаппе саркастично высказался о непопадании в состав &quot;Реала&quot;</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Футболист Мбаппе высказался о непопадании в состав «Реала». Он сделал саркастическое заявление по этому поводу.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="81c8df86" title="Нравится">🤍</button>
-                            <a href="https://ria.ru/20260513/shoygu-2092293847.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="c34c8c55" title="Нравится">🤍</button>
+                            <a href="https://ria.ru/20260515/mbappe-2092593685.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -530,20 +569,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/0c1ca16c51f65876/600/400" alt="В МИТ назвали помощь Путина решающей в создании ракетно-ядерной техники" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#1a527633,#1a527611)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://ria.ru/20260513/putin-2092293693.html" target="_blank" rel="noopener">В МИТ назвали помощь Путина решающей в создании ракетно-ядерной техники</a>
+                            <a href="https://russian.rt.com/world/news/1632129-helsinki-aeroport-bespilotniki?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=RSS" target="_blank" rel="noopener">Yle: аэропорт Хельсинки приостановил работу из-за угрозы дронов</a>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
-                            
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">RT на русском</span>
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Аэропорт Хельсинки приостановил работу из-за угрозы дронов. Это произошло утром 15 мая, авиасообщение было временно прекращено.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="0a49aac1" title="Нравится">🤍</button>
-                            <a href="https://ria.ru/20260513/putin-2092293693.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="e2e217a3" title="Нравится">🤍</button>
+                            <a href="https://russian.rt.com/world/news/1632129-helsinki-aeroport-bespilotniki?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=RSS" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -551,20 +590,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527644,#1a527611)"><img src="https://picsum.photos/seed/f61c1ed95ac5efa3/600/400" alt="В Херсоне два боевика ВСУ изнасиловали местную жительницу, заявил Сальдо" loading="lazy"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#1a527688,#000)"><img src="https://mf.b37mrtl.ru/russian/images/2026.05/thumbnail/6a06b0d502e8bd31b26baa5e.jpg" alt="Дуран досрочно расторг с «Зенитом» арендное соглашение" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://ria.ru/20260513/herson-2092293518.html" target="_blank" rel="noopener">В Херсоне два боевика ВСУ изнасиловали местную жительницу, заявил Сальдо</a>
+                            <a href="https://russian.rt.com/sport/news/1632115-duran-zenit-futbol-kontrakt?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=RSS" target="_blank" rel="noopener">Дуран досрочно расторг с «Зенитом» арендное соглашение</a>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#1a527622;color:#1a5276">РИА Новости</span>
-                            
+                            <span class="article-source" style="background:#1a527622;color:#1a5276">RT на русском</span>
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Нападающий «Аль-Насра» Джон Дуран досрочно расторг арендное соглашение с «Зенитом». Это произошло по взаимному согласию сторон.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="eda983bf" title="Нравится">🤍</button>
-                            <a href="https://ria.ru/20260513/herson-2092293518.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="58e1a644" title="Нравится">🤍</button>
+                            <a href="https://russian.rt.com/sport/news/1632115-duran-zenit-futbol-kontrakt?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=RSS" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -579,20 +618,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b88,#000)"><img src="https://icdn.lenta.ru/images/2026/05/13/13/20260513134126306/pic_98c140254a297b7dbec75d21a746cc39.jpg" alt="ВВС США получат гиперзвукового «убийцу китайских кораблей»" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#b7950b33,#b7950b11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://lenta.ru/news/2026/05/13/vvs-ssha-poluchat-giperzvukovogo-ubiytsu-kitayskih-korabley/" target="_blank" rel="noopener">ВВС США получат гиперзвукового «убийцу китайских кораблей»</a>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494887.html" target="_blank" rel="noopener">Отчет о состоянии экономики США: неопределенность остается высокой</a><div class="article-title-original">美联储“褐皮书”：美国经济不确定性居高位　关税推高物价</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#b7950b22;color:#b7950b">Китай (Lenta)</span>
-                            
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Согласно отчету Федеральной резервной системы США, неопределенность в экономике и политике остается высокой, что негативно влияет на бизнес и домохозяйства.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="a2837461" title="Нравится">🤍</button>
-                            <a href="https://lenta.ru/news/2026/05/13/vvs-ssha-poluchat-giperzvukovogo-ubiytsu-kitayskih-korabley/" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="eacc4011" title="Нравится">🤍</button>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494887.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -600,20 +639,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b88,#000)"><img src="https://icdn.lenta.ru/images/2026/05/13/18/20260513180339955/pic_6780040c4e672e3c5dc80d5fb624f4ba.jpg" alt="Китай отправил в космос искусственные эмбрионы" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#b7950b33,#b7950b11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://lenta.ru/news/2026/05/13/kitay-otpravil-v-kosmos-iskusstvennye-embriony/" target="_blank" rel="noopener">Китай отправил в космос искусственные эмбрионы</a>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494861.html" target="_blank" rel="noopener">Министерство коммерции Китая: будет одобрена заявка на экспорт редкоземельных элементов</a><div class="article-title-original">商务部：中方对合规稀土出口许可申请将予以批准</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#b7950b22;color:#b7950b">Китай (Lenta)</span>
-                            
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网国际 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>Министерство коммерции Китая заявило, что будет одобрена заявка на экспорт редкоземельных элементов, если она соответствует установленным правилам.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="a652f978" title="Нравится">🤍</button>
-                            <a href="https://lenta.ru/news/2026/05/13/kitay-otpravil-v-kosmos-iskusstvennye-embriony/" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="77fefedb" title="Нравится">🤍</button>
+                            <a href="http://world.people.com.cn/n1/2025/0605/c1002-40494861.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -621,20 +660,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b88,#000)"><img src="https://icdn.lenta.ru/images/2026/05/13/16/20260513164159938/pic_70745907ba47543a3a5bb866bd00abb1.jpg" alt="Предсказан итог визита Трампа в Китай" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#b7950b88,#000)"><img src="/mediafile/pic/BIG/20250605/27/5808550813169132831.png" alt="学习卡丨“人不负青山，青山定不负人”" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://lenta.ru/news/2026/05/13/predskazan-itog-vizita-trampa-v-kitay/" target="_blank" rel="noopener">Предсказан итог визита Трампа в Китай</a>
+                            <a href="http://politics.people.com.cn/n1/2025/0605/c1001-40494898.html" target="_blank" rel="noopener">Уроки по охране окружающей среды</a><div class="article-title-original">学习卡丨“人不负青山，青山定不负人”</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#b7950b22;color:#b7950b">Китай (Lenta)</span>
-                            
+                            <span class="article-source" style="background:#b7950b22;color:#b7950b">人民网时政 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
+                            ⭐ редакторский
                         </div>
-                        
+                        <div class="article-summary"><span class="ai-badge">AI</span>В Китае отмечается Всемирный день окружающей среды, и власти призывают граждан заботиться о природе и защищать ее.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="96fc9f41" title="Нравится">🤍</button>
-                            <a href="https://lenta.ru/news/2026/05/13/predskazan-itog-vizita-trampa-v-kitay/" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="2606c525" title="Нравится">🤍</button>
+                            <a href="http://politics.people.com.cn/n1/2025/0605/c1001-40494898.html" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -649,20 +688,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/77928b7c249d0f8d61508a1e86177f5d.jpg" alt="Популярная у белорусских туристов страна сделала визы бесплатными" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/3c6cd7b86a46d6044e8be4f0a6dc08ef.jpg" alt="Пережила полиомиелит, но стала чемпионкой мира и крутой художницей. Знакомьтесь: это Соня (видео)" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://people.onliner.by/2026/05/13/shri-lanka-sdelaet-vizy-dlya-belorusov-besplatnymi" target="_blank" rel="noopener">Популярная у белорусских туристов страна сделала визы бесплатными</a>
+                            <a href="https://people.onliner.by/2026/05/15/perezhila-poliomielit" target="_blank" rel="noopener">Пережила полиомиелит, но стала чемпионкой мира и крутой художницей. Знакомьтесь: это Соня (видео)</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#27ae6022;color:#27ae60">ONLINER (Беларусь)</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">Шри-Ланка с 25 мая сделает визы для белорусов бесплатными. Об этом заявил министр иностранных дел Беларуси Максим Рыженков по итогам переговоров с министром иностранных дел, трудоустройства за рубежом</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Девушка по имени Соня, которая перенесла полиомиелит, стала чемпионкой мира по бальным танцам и художницей. Она добилась больших успехов в своей жизни.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="817498fe" title="Нравится">🤍</button>
-                            <a href="https://people.onliner.by/2026/05/13/shri-lanka-sdelaet-vizy-dlya-belorusov-besplatnymi" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="231f7efc" title="Нравится">🤍</button>
+                            <a href="https://people.onliner.by/2026/05/15/perezhila-poliomielit" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -670,20 +709,20 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/e7de3602331f8a71cb8a7deec7e35c8c.jpg" alt="Где больше всего женщин и велосипедов? Ищем «самые-самые» города Беларуси — помогайте" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#27ae6088,#000)"><img src="https://content.onliner.by/news/thumbnail/51c9c4c73c2ce4eeb78f1de1a58c2dae.jpg" alt="Перепутал газировку со средством для мойки двигателя: дети отравились бытовой химией" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://people.onliner.by/2026/05/13/samye-samye-goroda-belarusi" target="_blank" rel="noopener">Где больше всего женщин и велосипедов? Ищем «самые-самые» города Беларуси — помогайте</a>
+                            <a href="https://people.onliner.by/2026/05/14/pereputal-gazirovku-so-sredstvom-dlya-mojki-dvigatelya-deti-otravilis-bytovoj-ximiej" target="_blank" rel="noopener">Перепутал газировку со средством для мойки двигателя: дети отравились бытовой химией</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#27ae6022;color:#27ae60">ONLINER (Беларусь)</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">Во всей редакции Onlíner не хватит пальцев рук, чтобы пересчитать города Беларуси, в которых уже успели побывать наши журналисты. При этом каждый день мы продолжаем искать новые поводы завести автомоб</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Дети отравились бытовой химией, перепутав ее с газировкой. Это произошло из-за ошибки взрослых, которые не обеспечили безопасность детей.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="e32456c1" title="Нравится">🤍</button>
-                            <a href="https://people.onliner.by/2026/05/13/samye-samye-goroda-belarusi" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="cd6a711d" title="Нравится">🤍</button>
+                            <a href="https://people.onliner.by/2026/05/14/pereputal-gazirovku-so-sredstvom-dlya-mojki-dvigatelya-deti-otravilis-bytovoj-ximiej" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -698,17 +737,17 @@
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#c0392b88,#000)"><img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/7a91/live/7ee54690-4edd-11f1-b55d-0f258dce1735.jpg" alt="Война в Украине: Россия запустила более 800 дронов, сообщил Зеленский; погибли шесть человек" loading="lazy" onerror="this.style.display='none'"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#c0392b88,#000)"><img src="https://ichef.bbci.co.uk/ace/standard/240/cpsprodpb/0876/live/ffdf6230-500e-11f1-b682-cf91850925ea.jpg" alt="Война в Украине: в результате массированного удара по Киеву погибли 24 человека; украинские беспилотники нанесли удар по Рязани, три человека погибли" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://www.bbc.co.uk/russian/live/cy52r3d960lt?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Война в Украине: Россия запустила более 800 дронов, сообщил Зеленский; погибли шесть человек</a>
+                            <a href="https://www.bbc.co.uk/russian/live/cy52r3d960lt?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Война в Украине: в результате массированного удара по Киеву погибли 24 человека; украинские беспилотники нанесли удар по Рязани, три человека погибли</a>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#c0392b22;color:#c0392b">BBC Russian</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">Последние новости, комментарии и видео о войне России против Украины.</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>В результате массированного удара по Киеву погибли 24 человека, а украинские беспилотники нанесли удар по Рязани, в результате чего погибли три человека.</div>
                         <div class="article-actions">
                             <button class="like-btn" data-key="e909b7a8" title="Нравится">🤍</button>
                             <a href="https://www.bbc.co.uk/russian/live/cy52r3d960lt?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
@@ -720,27 +759,26 @@
         </div>
         <div class="category-section">
             <h2 class="category-header" style="border-left: 4px solid #8e44ad; padding-left: 12px; color: #8e44ad;">
-                🤖 AI / IT / Роботы <span class="count-badge">7</span>
+                🤖 AI / IT / Роботы <span class="count-badge">12</span>
             </h2>
             <div class="articles-curated">
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/a7d796a407f71ac3/600/400" alt="Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08200" target="_blank" rel="noopener">Where Reliability Lives in Vision-Language Models: A Mechanistic Study of Attention, Hidden States, and Causal Circuits</a>
+                            <a href="https://arxiv.org/abs/2605.13848" target="_blank" rel="noopener">GraphBit: графический агентский фреймворк для нелинейной оркестрации агентов</a><div class="article-title-original">GraphBit: A Graph-based Agentic Framework for Non-Linear Agent Orchestration</div>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08200v1 Announce Type: new 
-Abstract: A pervasive intuition holds that vision-language models (VLMs) are most trustworthy when their attention maps look sharp: concentrated attention on the</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Представлен GraphBit, фреймворк для оркестрации агентов, который использует графовую структуру для определения переходов между агентами, что позволяет избежать проблем с зацикливанием и нерепродуцируемостью.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="a7b8fa7f" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08200" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="0a1bf7f3" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13848" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -748,21 +786,20 @@ Abstract: A pervasive intuition holds that vision-language models (VLMs) are mos
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/7708947dcb14be63/600/400" alt="Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08220" target="_blank" rel="noopener">Spatial Priming Outperforms Semantic Prompting: A Grid-Based Approach to Improving LLM Accuracy on Chart Data Extraction</a>
+                            <a href="https://arxiv.org/abs/2605.13849" target="_blank" rel="noopener">Целочисленная программа целей для персонализированной оптимизации питания с пользовательской гранулярностью</a><div class="article-title-original">Mixed Integer Goal Programming for Personalized Meal Optimization with User-Defined Serving Granularity</div>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08220v1 Announce Type: new 
-Abstract: The automated extraction of data from scientific charts is a critical task for large-scale literature analysis. While multimodal Large Language Models </div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья представляет подход к решению проблемы оптимизации питания с помощью целочисленной программы целей, который позволяет учитывать пользовательские предпочтения и гранулярность порций.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="49928d3f" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08220" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="2114f62a" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13849" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -770,21 +807,20 @@ Abstract: The automated extraction of data from scientific charts is a critical 
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/a726c2434025a048/600/400" alt="Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08354" target="_blank" rel="noopener">Auto-Rubric as Reward: From Implicit Preferences to Explicit Multimodal Generative Criteria</a>
+                            <a href="https://arxiv.org/abs/2605.13850" target="_blank" rel="noopener">Двумерный фреймворк для проектирования шаблонов ИИ-агентов: когнитивные функции и топология выполнения</a><div class="article-title-original">A Two-Dimensional Framework for AI Agent Design Patterns: Cognitive Function and Execution Topology</div>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08354v1 Announce Type: new 
-Abstract: Aligning multimodal generative models with human preferences demands reward signals that respect the compositional, multi-dimensional structure of huma</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Представлен фреймворк для проектирования ИИ-агентов, который учитывает как когнитивные функции, так и топологию выполнения, что позволяет создавать более эффективные и гибкие системы.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="5a402384" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08354" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="3d77c578" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13850" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -792,21 +828,20 @@ Abstract: Aligning multimodal generative models with human preferences demands r
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/724e7710a843e60c/600/400" alt="Embeddings for Preferences, Not Semantics" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08360" target="_blank" rel="noopener">Embeddings for Preferences, Not Semantics</a>
+                            <a href="https://arxiv.org/abs/2605.13851" target="_blank" rel="noopener">Невидимые оркестраторы подавляют защитное поведение и дезориентируют держателей власти: риски безопасности в многоагентных системах ИИ</a><div class="article-title-original">Invisible Orchestrators Suppress Protective Behavior and Dissociate Power-Holders: Safety Risks in Multi-Agent LLM Systems</div>
                         </div>
                         <div class="article-meta">
                             <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08360v1 Announce Type: new 
-Abstract: Modern AI is opening the door to collective decision-making in which participants express their views as free-form text rather than voting on a fixed s</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья исследует проблемы безопасности в многоагентных системах ИИ, где невидимые оркестраторы могут подавлять защитное поведение и дезориентировать держателей власти, что может привести к серьезным рискам.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="5b2d28f3" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08360" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="ba2fa0aa" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13851" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -814,21 +849,20 @@ Abstract: Modern AI is opening the door to collective decision-making in which p
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/3ba8f8eb500bb786/600/400" alt="On Distinguishing Capability Elicitation from Capability Creation in Post-Training: A Free-Energy Perspective" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08368" target="_blank" rel="noopener">On Distinguishing Capability Elicitation from Capability Creation in Post-Training: A Free-Energy Perspective</a>
+                            <a href="https://arxiv.org/abs/2605.13925" target="_blank" rel="noopener">К роботизированной ловкости руки: обзор</a><div class="article-title-original">Towards Robotic Dexterous Hand Intelligence: A Survey</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.RO</span>
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08368v1 Announce Type: new 
-Abstract: Debates about large language model post-training often treat supervised fine-tuning (SFT) as imitation and reinforcement learning (RL) as discovery. Bu</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья представляет обзор последних достижений в области роботизированной ловкости руки, включая прогресс в области аппаратного обеспечения, датчиков, управления и симуляции.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="04499fb6" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08368" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="83b172a6" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13925" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -836,21 +870,20 @@ Abstract: Debates about large language model post-training often treat supervise
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/c00f33014e54cc86/600/400" alt="MemQ: Integrating Q-Learning into Self-Evolving Memory Agents over Provenance DAGs" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08374" target="_blank" rel="noopener">MemQ: Integrating Q-Learning into Self-Evolving Memory Agents over Provenance DAGs</a>
+                            <a href="https://arxiv.org/abs/2605.13996" target="_blank" rel="noopener">Эргодическая имитация для адаптивного исследования вокруг демонстраций</a><div class="article-title-original">Ergodic Imitation for Adaptive Exploration around Demonstrations</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.RO</span>
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08374v2 Announce Type: new 
-Abstract: Episodic memory allows LLM agents to accumulate and retrieve experience, but current methods treat each memory independently, i.e., evaluating retrieva</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья представляет подход к решению проблемы имитации в робототехнике, который использует эргодическую имитацию для адаптивного исследования вокруг демонстраций, что позволяет улучшить гибкость и эффективность роботов.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="2b8f9704" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08374" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="83d20747" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.13996" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -858,77 +891,20 @@ Abstract: Episodic memory allows LLM agents to accumulate and retrieve experienc
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad44,#8e44ad11)"><img src="https://picsum.photos/seed/1e1df8de298f5852/600/400" alt="SkillLens: Adaptive Multi-Granularity Skill Reuse for Cost-Efficient LLM Agents" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="https://arxiv.org/abs/2605.08386" target="_blank" rel="noopener">SkillLens: Adaptive Multi-Granularity Skill Reuse for Cost-Efficient LLM Agents</a>
+                            <a href="https://arxiv.org/abs/2605.14106" target="_blank" rel="noopener">Клонирование поведения для активного восприятия с низкоразрешающим эгоцентрическим зрением</a><div class="article-title-original">Behavior Cloning for Active Perception with Low-Resolution Egocentric Vision</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.AI</span>
-                            
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.RO</span>
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">arXiv:2605.08386v1 Announce Type: new 
-Abstract: Skill libraries have become a practical way for LLM agents to reuse procedural experience across tasks. However, existing systems typically treat skill</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья исследует возможность использования клонирования поведения для активного восприятия в задаче поиска объектов с помощью низкоразрешающего эгоцентрического зрения.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="93ee8a54" title="Нравится">🤍</button>
-                            <a href="https://arxiv.org/abs/2605.08386" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="category-section">
-            <h2 class="category-header" style="border-left: 4px solid #2c3e50; padding-left: 12px; color: #2c3e50;">
-                🚀 Космос <span class="count-badge">1</span>
-            </h2>
-            <div class="articles-curated">
-            <div class="article-curated">
-                <div class="article-curated-main">
-                    <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#2c3e5044,#2c3e5011)"><img src="https://picsum.photos/seed/37900477881404a9/600/400" alt="Studying Pneumonia in Space for Heart Health on Earth" loading="lazy"></div>
-                    </div>
-                    <div class="article-curated-content">
-                        <div class="article-curated-title">
-                            <a href="https://www.nasa.gov/missions/station/iss-research/studying-pneumonia-in-space-for-heart-health-on-earth/" target="_blank" rel="noopener">Studying Pneumonia in Space for Heart Health on Earth</a>
-                        </div>
-                        <div class="article-meta">
-                            <span class="article-source" style="background:#2c3e5022;color:#2c3e50">NASA Breaking</span>
-                            
-                        </div>
-                        <div class="article-summary">Expedition 74 astronauts aboard the International Space Station are uncovering how bacteria that causes pneumonia can lead to long-term damage in the heart. Researchers are leveraging the space enviro</div>
-                        <div class="article-actions">
-                            <button class="like-btn" data-key="0c9f9a66" title="Нравится">🤍</button>
-                            <a href="https://www.nasa.gov/missions/station/iss-research/studying-pneumonia-in-space-for-heart-health-on-earth/" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            </div>
-        </div>
-        <div class="category-section">
-            <h2 class="category-header" style="border-left: 4px solid #7f8c8d; padding-left: 12px; color: #7f8c8d;">
-                🌍 Мировые новости <span class="count-badge">3</span>
-            </h2>
-            <div class="articles-curated">
-            <div class="article-curated">
-                <div class="article-curated-main">
-                    <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#7f8c8d44,#7f8c8d11)"><img src="https://picsum.photos/seed/195ad486e676ff28/600/400" alt="В шествии со свечами у святилища Фатимы приняли участие десятки тысяч верующих" loading="lazy"></div>
-                    </div>
-                    <div class="article-curated-content">
-                        <div class="article-curated-title">
-                            <a href="http://ru.euronews.com/my-europe/2026/05/13/blessing-of-the-candles" target="_blank" rel="noopener">В шествии со свечами у святилища Фатимы приняли участие десятки тысяч верующих</a>
-                        </div>
-                        <div class="article-meta">
-                            <span class="article-source" style="background:#7f8c8d22;color:#7f8c8d">Euronews Russian</span>
-                            
-                        </div>
-                        <div class="article-summary">Святилище Фатимы известно как место, где, по преданию, в 1917 году происходили явления Девы Марии трём детям-пастушкам. Католическая церковь признала эти события чудом.</div>
-                        <div class="article-actions">
-                            <button class="like-btn" data-key="14bf53be" title="Нравится">🤍</button>
-                            <a href="http://ru.euronews.com/my-europe/2026/05/13/blessing-of-the-candles" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="8183b821" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.14106" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -936,20 +912,20 @@ Abstract: Skill libraries have become a practical way for LLM agents to reuse pr
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#7f8c8d44,#7f8c8d11)"><img src="https://picsum.photos/seed/c248420d9391168c/600/400" alt="Хантавирус: ЕС координирует усилия, но подчёркивает, что это не ковид" loading="lazy"></div>
+                        <div class="article-curated-image article-noimage" style="background:linear-gradient(135deg,#8e44ad33,#8e44ad11)"><div class="noimage-icon">📰</div></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="http://ru.euronews.com/health/2026/05/13/hantavirus-outbreak-prompts-the-eu-to-strengthen-cross-border-health-coordination" target="_blank" rel="noopener">Хантавирус: ЕС координирует усилия, но подчёркивает, что это не ковид</a>
+                            <a href="https://arxiv.org/abs/2605.14174" target="_blank" rel="noopener">Обучение с ограничениями безопасности и посттренировочной проверкой досягаемости для навигации роботов</a><div class="article-title-original">Safety-Constrained Reinforcement Learning with Post-Training Reachability Verification for Robot Navigation</div>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#7f8c8d22;color:#7f8c8d">Euronews Russian</span>
-                            
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">arXiv cs.RO</span>
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">Страны ЕС укрепляют координацию в сфере здравоохранения после вспышки хантавируса на круизном лайнере</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья представляет подход к решению проблемы навигации роботов с учетом ограничений безопасности, который использует обучение с ограничениями безопасности и посттренировочную проверку досягаемости для обеспечения надежной и безопасной навигации.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="f56bacce" title="Нравится">🤍</button>
-                            <a href="http://ru.euronews.com/health/2026/05/13/hantavirus-outbreak-prompts-the-eu-to-strengthen-cross-border-health-coordination" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="eaccebf1" title="Нравится">🤍</button>
+                            <a href="https://arxiv.org/abs/2605.14174" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -957,20 +933,83 @@ Abstract: Skill libraries have become a practical way for LLM agents to reuse pr
             <div class="article-curated">
                 <div class="article-curated-main">
                     <div class="article-curated-image">
-                        <div class="article-curated-image" style="background:linear-gradient(135deg,#7f8c8d44,#7f8c8d11)"><img src="https://picsum.photos/seed/3add3134cece05a8/600/400" alt="Две трети импорта СПГ в Европу будут поступать из США на фоне усиления зависимости" loading="lazy"></div>
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad88,#000)"><img src="https://habrastorage.org/getpro/habr/upload_files/46e/52e/c59/46e52ec5935b6e63ce559ae6cf4b7917.png" alt="Каким ИИ был до мощных компьютеров?" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
                     </div>
                     <div class="article-curated-content">
                         <div class="article-curated-title">
-                            <a href="http://ru.euronews.com/business/2026/05/13/two-thirds-of-europes-lng-imports-will-come-from-the-us-amid-increased-reliance" target="_blank" rel="noopener">Две трети импорта СПГ в Европу будут поступать из США на фоне усиления зависимости</a>
+                            <a href="https://habr.com/ru/companies/studyai/articles/1035322/?utm_campaign=1035322&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener">Каким ИИ был до мощных компьютеров?</a>
                         </div>
                         <div class="article-meta">
-                            <span class="article-source" style="background:#7f8c8d22;color:#7f8c8d">Euronews Russian</span>
-                            
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">Habr AI</span>
+                            ⭐ редакторский
                         </div>
-                        <div class="article-summary">Ожидается, что к 2026 году почти две трети импортируемого Европой СПГ будут поступать из США, говорится в новом докладе Института энергетической экономики и финансового анализа (IEEFA).</div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Статья представляет ретроспективный обзор истории искусственного интеллекта, включая его развитие в 90-х и 2000-х годах, и показывает, как ИИ эволюционировал от простых начал до современных мощных систем.</div>
                         <div class="article-actions">
-                            <button class="like-btn" data-key="c7bed2b0" title="Нравится">🤍</button>
-                            <a href="http://ru.euronews.com/business/2026/05/13/two-thirds-of-europes-lng-imports-will-come-from-the-us-amid-increased-reliance" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                            <button class="like-btn" data-key="adb9cf33" title="Нравится">🤍</button>
+                            <a href="https://habr.com/ru/companies/studyai/articles/1035322/?utm_campaign=1035322&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad88,#000)"><img src="https://habrastorage.org/getpro/habr/upload_files/b64/1c7/bde/b641c7bdeee3ba1eb159c6cc7db84442.jpg" alt="ИИ в HR: тестирование сотрудников. Практический кейс и промпт проверки знаний правил habr с AI" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://habr.com/ru/articles/1035018/?utm_campaign=1035018&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener">ИИ в HR: тестирование сотрудников. Практический кейс и промпт проверки знаний правил habr с AI</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">Habr AI</span>
+                            ⭐ редакторский
+                        </div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>ИИ-тесты - это один из самых простых, эффективных и надёжных методов использования искусственного интеллекта в компаниях и организациях. В статье рассмотрим реальный кейс, и на примере простого промпта сгенерируем тесты для проверки знаний правил habr.</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="641c3e85" title="Нравится">🤍</button>
+                            <a href="https://habr.com/ru/articles/1035018/?utm_campaign=1035018&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad88,#000)"><img src="https://habrastorage.org/getpro/habr/upload_files/f18/efb/6d1/f18efb6d1fc43303387b7a351df4b8dd.png" alt="Когда Кнут признаёт, что Claude решил его задачу за час — пора менять инфраструктуру" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://habr.com/ru/articles/1035384/?utm_campaign=1035384&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener">Когда Кнут признаёт, что Claude решил его задачу за час — пора менять инфраструктуру</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">Habr AI</span>
+                            ⭐ редакторский
+                        </div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Научная инфраструктура построена под режим «один человек читает один PDF», но этот режим перестаёт быть основным. Peer review наполовину случаен, а медианное время до решения составляет 198 дней.</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="ed4e6d13" title="Нравится">🤍</button>
+                            <a href="https://habr.com/ru/articles/1035384/?utm_campaign=1035384&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="article-curated">
+                <div class="article-curated-main">
+                    <div class="article-curated-image">
+                        <div class="article-curated-image" style="background:linear-gradient(135deg,#8e44ad88,#000)"><img src="https://habrastorage.org/getpro/habr/upload_files/6e0/59a/d92/6e059ad9209248828a700f1909235a68.png" alt="Как создавали норнов: тернистый путь программиста из Британии на пути к искусственной жизни" loading="lazy" onerror="this.style.display='none'" crossorigin="anonymous"></div>
+                    </div>
+                    <div class="article-curated-content">
+                        <div class="article-curated-title">
+                            <a href="https://habr.com/ru/articles/1034892/?utm_campaign=1034892&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener">Как создавали норнов: тернистый путь программиста из Британии на пути к искусственной жизни</a>
+                        </div>
+                        <div class="article-meta">
+                            <span class="article-source" style="background:#8e44ad22;color:#8e44ad">Habr AI</span>
+                            ⭐ редакторский
+                        </div>
+                        <div class="article-summary"><span class="ai-badge">AI</span>Рассказ об исследовательском проекте программиста в сфере ИИ из середины 90-ых, которую он оформил как компьютерную игру.</div>
+                        <div class="article-actions">
+                            <button class="like-btn" data-key="4fc58929" title="Нравится">🤍</button>
+                            <a href="https://habr.com/ru/articles/1034892/?utm_campaign=1034892&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener" class="article-original">📎 Оригинал →</a>
                         </div>
                     </div>
                 </div>
@@ -980,184 +1019,255 @@ Abstract: Skill libraries have become a practical way for LLM agents to reuse pr
         
         <div class="feed-section">
             <div class="feed-header">
-                📋 Ещё в ленте · 12 новостей
+                📋 Ещё в ленте · 17 новостей
             </div>
             <div class="feed-list">
                 
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/e0ee4e2022eae036/600/400" alt="" loading="lazy"></div>
+                    <div class="feed-item-image"><img src="https://mf.b37mrtl.ru/russian/images/2026.05/thumbnail/6a06ab47ae5ac9144449a8c1.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/nadal-2092293320.html" target="_blank" rel="noopener">Надаль ответил на слухи о том, что он повлияет на выборы президента &quot;Реала&quot;</a>
+                        <a href="https://russian.rt.com/world/news/1632111-zapad-vranyo-biolaboratorii-ukraina?utm_source=rss&amp;utm_medium=rss&amp;utm_campaign=RSS" target="_blank" rel="noopener">RT напомнил, как Запад годами врал об отсутствии биолабораторий на Украине</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#1a5276">RT на русском</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="a1075fa8" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="152d4082" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e9/04/06/2009625489_0:160:3072:1888_650x0_80_0_0_4c6b276f78bbd66e2615305c7d9a277d.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://vz.ru/images/zenvz.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/dmitriev-2092293132.html" target="_blank" rel="noopener">Глава РФПИ сравнил призывы к отставке Стармера с удалением зуба мудрости</a>
+                        <a href="https://vz.ru/news/2026/5/15/1419214.html" target="_blank" rel="noopener">��������� ������� ����� ���� �� ����������� �����</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#1a5276">Взгляд</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="71fc2b46" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="c0b8ebba" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07ea/04/1e/2089898259_0:62:2157:1275_650x0_80_0_0_aeefc4d32adb57fbc522408416e43cc7.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://vz.ru/images/zenvz.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/kuban-2092293016.html" target="_blank" rel="noopener">Экс-замгубернатор Кубани дала показания о коррупции органов власти</a>
+                        <a href="https://vz.ru/news/2026/5/15/1419213.html" target="_blank" rel="noopener">������� ������ �������� �������� ��������� ������ � ������ � �������� � �����</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#1a5276">Взгляд</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="db4d9b70" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="9571f56f" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07ea/01/1f/2071474198_0:170:3036:1878_650x0_80_0_0_006f1512fee43a737c436fdff94df716.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://vz.ru/images/zenvz.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/mahachkala-2092292821.html" target="_blank" rel="noopener">В Махачкале возбудили дело после того, как ребенок лишился пальца в детсаду</a>
+                        <a href="https://vz.ru/news/2026/5/15/1419212.html" target="_blank" rel="noopener">���� ������� ����� ������ ��������� �� ������� ����������</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#1a5276">Взгляд</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="78da1b57" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="e08888cf" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e8/08/1e/1969507724_0:95:3122:1851_650x0_80_0_0_9e77301058903d7ccb716f553a4a8a5a.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="/mediafile/pic/BIG/20250605/28/15948307571974176660.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/indiya-2092292602.html" target="_blank" rel="noopener">Глава МИД Индии заявил о необходимости открытого обмена мнениями с Россией</a>
+                        <a href="http://politics.people.com.cn/n1/2025/0605/c1001-40494899.html" target="_blank" rel="noopener">镜观·足迹｜呵护千山万水 擘画永续发展</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#b7950b">人民网时政 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="0324c854" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="2cf12121" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/20811596830c505f/600/400" alt="" loading="lazy"></div>
+                    <div class="feed-item-image" style="background:#b7950b22"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/ukraina-2092292385.html" target="_blank" rel="noopener">&quot;Волна убийств&quot;. Произошедшее на Украине вызвало ужас в США</a>
+                        <a href="http://finance.people.com.cn/n1/2025/0605/c1004-40494877.html" target="_blank" rel="noopener">体育精神赋能 乳制品行业推动品质提升</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#b7950b">人民网财经 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="a824293c" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="6d47ecab" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/eaaea05e79c35a18/600/400" alt="" loading="lazy"></div>
+                    <div class="feed-item-image" style="background:#b7950b22"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/frantsiya-2092292202.html" target="_blank" rel="noopener">СМИ: контактировавших с пассажиркой MV Hondius французов госпитализировали</a>
+                        <a href="http://finance.people.com.cn/n1/2025/0605/c1004-40494874.html" target="_blank" rel="noopener">商务部回应汽车行业“内卷”：配合相关部门加强综合整治与合规引导</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#b7950b">人民网财经 (кит.)</span> <span class="trans-badge">🌐 с китайского</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="be478a41" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="dc017a24" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e7/08/1c/1892619272_0:215:2789:1784_650x0_80_0_0_724348e8ac9abcd93a3d5bda375eab33.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://news.cgtn.com/news/2026-04-13/Wang-Yi-Blockade-of-Strait-of-Hormuz-not-in-common-interests-1MjvvDkD5Ek/img/aee3d90e76304152b6d35ead7df62176/aee3d90e76304152b6d35ead7df62176-250.png" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/peregovory-2092292044.html" target="_blank" rel="noopener">Переговоры глав МИД России и Индии начались в Нью-Дели</a>
+                        <a href="https://news.cgtn.com/news/2026-04-13/Wang-Yi-Blockade-of-Strait-of-Hormuz-not-in-common-interests-1MjvvDkD5Ek/p.html?UTM_Source=cgtn&amp;amp;UTM_Medium=rss&amp;amp;UTM_Campaign=World" target="_blank" rel="noopener">Wang Yi: Blockade of Strait of Hormuz not in common interests</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#b7950b">CGTN World (англ.)</span> <span class="trans-badge">🌐 с английского</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="60be0b57" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="5a743dd2" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image" style="background:#1a527622"><img src="https://picsum.photos/seed/88735814b84b0991/600/400" alt="" loading="lazy"></div>
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/d4cc20c22b7f93b8a56b2c9313c24cfe.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/tramp-2092291746.html" target="_blank" rel="noopener">Рютте отметил важность диалога Трампа с Россией</a>
+                        <a href="https://people.onliner.by/2026/05/14/fotosyuzhet-krasivejshee-mesto-belarusi-v-kotoroe-slozhno-popast" target="_blank" rel="noopener">Фоторепортаж: красивейшее место Беларуси, в которое сложно попасть</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="2213f460" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="0a2f9292" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e7/07/12/1884947256_0:158:3077:1889_650x0_80_0_0_33324f4ded1e64c4871778dd240ac71b.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/acac62350f0f92f04817e7f71b49f5d6.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/zhile-2092291269.html" target="_blank" rel="noopener">Гладков сообщил еще о 2 млрд руб для потерявших жилье белгородцев</a>
+                        <a href="https://people.onliner.by/2026/05/14/v-belarusi-zafiksirovan-pervyj-s-2012-goda-sluchaj-beshenstva-u-cheloveka" target="_blank" rel="noopener">«Кормила бездомного кота». В Беларуси зафиксирован первый за 14 лет случай бешенства у человека</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="7a21ab96" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="b8dbf34f" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07ea/05/0b/2091828783_0:0:3098:1743_650x0_80_0_0_a28d2dac190d71c8478c872e0719e988.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/6dbc1bf1c4bd9ba4dde6afa9a5313299.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/lokomotiv-ak-bars-smotret-onlayn-2092234256.html" target="_blank" rel="noopener">&quot;Локомотив&quot; – &quot;Ак Барс&quot;: смотреть онлайн плей-офф КХЛ 13 мая</a>
+                        <a href="https://people.onliner.by/2026/05/14/pod-vitebskom-sobaku-izbili-kuvaldoj-a-potom-povesili-v-sarae-vozbuzhdeno-ugolovnoe-delo" target="_blank" rel="noopener">«Били кувалдой, а потом повесили в сарае». Под Витебском сельчане мучили немецкую овчарку</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="c775b21e" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="e27a0778" title="Нравится">🤍</button>
             </div>
             <div class="feed-item">
                 <div class="feed-item-image">
-                    <div class="feed-item-image"><img src="https://cdnn21.img.ria.ru/images/07e9/0a/0a/2047538466_0:0:3066:1725_650x0_80_0_0_51c45f8fb6414ac183976b4288aca4eb.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''"></div>
+                    <div class="feed-item-image"><img src="https://content.onliner.by/news/thumbnail/491fd174f403007e1608e26f168a9d75.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
                 </div>
                 <div class="feed-item-content">
                     <div class="feed-item-title">
-                        <a href="https://ria.ru/20260513/opk-2092290192.html" target="_blank" rel="noopener">Российский ОПК должен идти вперед, несмотря на трудности, заявил Путин</a>
+                        <a href="https://people.onliner.by/2026/05/14/v-belarusi-usilili-kontrol-na-granice-iz-za-xantavirusa" target="_blank" rel="noopener">На границе усилили контроль из-за хантавируса</a>
                     </div>
                     <div class="feed-item-meta">
-                        <span class="feed-item-source" style="color:#1a5276">РИА Новости</span>
+                        <span class="feed-item-source" style="color:#27ae60">ONLINER (Беларусь)</span>
                     </div>
                 </div>
-                <button class="like-btn" data-key="aa8b694f" title="Нравится">🤍</button>
+                <button class="like-btn" data-key="89e5be29" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/e2e5/live/71e09510-4f8e-11f1-9047-c9775177a8ab.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/cjwp6pep51yo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Тихановская поговорила с посланником Трампа; программиста приговорили к пяти годам за донаты. Главное в Беларуси за неделю</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="72c5123d" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/5dac/live/6735c5e0-4f3e-11f1-b010-590460292038.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/ckgpy1pnddyo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">В Киеве ракета попала в жилую девятиэтажку, погибли более 20 человек. Что известно</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="29e5c87d" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/8cae/live/932ae3d0-4fe6-11f1-b682-cf91850925ea.png" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/c202zr4eeyeo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Объявлены все финалисты «Евровидения-2026»</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="7762b974" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image"><img src="https://ichef.bbci.co.uk/ace/ws/240/cpsprodpb/0b03/live/c2109ea0-4fb5-11f1-8b8c-6d33e1d5abb6.jpg" alt="" loading="lazy" onerror="this.parentElement.innerHTML=''" crossorigin="anonymous"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://www.bbc.com/russian/articles/clyp02epdnyo?at_medium=RSS&amp;amp;at_campaign=rss" target="_blank" rel="noopener">Ученые определили новый вид гигантского динозавра по найденным в Таиланде костям</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#c0392b">BBC Russian</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="21008a8e" title="Нравится">🤍</button>
+            </div>
+            <div class="feed-item">
+                <div class="feed-item-image">
+                    <div class="feed-item-image" style="background:#8e44ad22"></div>
+                </div>
+                <div class="feed-item-content">
+                    <div class="feed-item-title">
+                        <a href="https://habr.com/ru/articles/1035386/?utm_campaign=1035386&amp;amp;utm_source=habrahabr&amp;amp;utm_medium=rss" target="_blank" rel="noopener">Ты выучил язык. Но инженером это тебя не сделало</a>
+                    </div>
+                    <div class="feed-item-meta">
+                        <span class="feed-item-source" style="color:#8e44ad">Habr Программирование</span>
+                    </div>
+                </div>
+                <button class="like-btn" data-key="ba4f0d53" title="Нравится">🤍</button>
             </div>
             </div>
         </div>
         
         <footer class="footer">
-            <p>Ежедневная газета · сгенерировано 13.05.2026</p>
+            <p>Ежедневная газета · сгенерировано 15.05.2026</p>
             <p>Источники: РИА, RT, Lenta, Взгляд, Коммерсантъ, Interfax, BBC, Euronews, arXiv, Habr, NASA и другие</p>
+            <p style="margin-top:4px;font-size:11px;color:var(--text-muted);">🛢️ Нефть Brent · 📈 Google (GOOGL) — данные Yahoo Finance · 💱 Курсы ЦБ РФ</p>
             <p style="margin-top:8px;font-size:11px;">
                 <a href="#" onclick="localStorage.clear();location.reload()">Сбросить лайки</a>
             </p>
